@@ -11,4 +11,6 @@ object Constants {
     const val FILM_TABLE = "film_table"
     const val FILM_REMOTE_KEYS_TABLE = "film_remote_keys_table"
 
+    const val FILM_DATABASE = "film_database"
+
 }
