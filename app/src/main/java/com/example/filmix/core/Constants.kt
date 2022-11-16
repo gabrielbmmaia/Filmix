@@ -6,8 +6,9 @@ object Constants {
 
     const val API_KEY = BuildConfig.API_KEY
 
-    const val FILM_TABLE = "film_table"
-
     const val BASE_URL = "https://api.themoviedb.org/3/"
+
+    const val FILM_TABLE = "film_table"
+    const val FILM_REMOTE_KEYS_TABLE = "film_remote_keys_table"
 
 }
