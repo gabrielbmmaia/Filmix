@@ -8,4 +8,6 @@ object Constants {
 
     const val FILM_TABLE = "film_table"
 
+    const val BASE_URL = "https://api.themoviedb.org/3/"
+
 }
