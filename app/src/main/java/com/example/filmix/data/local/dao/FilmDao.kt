@@ -7,12 +7,13 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.filmix.core.Constants.FILM_TABLE
 import com.example.filmix.data.model.FilmDto
+import com.example.filmix.domain.model.Film
 
 @Dao
 interface FilmDao {
 
     @Query("SELECT * FROM $FILM_TABLE")
-    fun getAllFilms(): PagingSource<Int,FilmDto>
+    fun getAllFilms(): PagingSource<Int, FilmDto>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFilms(films: List<FilmDto>)

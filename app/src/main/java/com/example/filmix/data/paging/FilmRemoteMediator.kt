@@ -19,7 +19,7 @@ import javax.inject.Inject
   consumidos pelo usuário.
   */
 @ExperimentalPagingApi
-class RemoteMediator @Inject constructor(
+class FilmRemoteMediator @Inject constructor(
     private val filmService: FilmService,
     private val filmDatabase: FilmDatabase
 ) : RemoteMediator<Int, FilmDto>() {

@@ -13,4 +13,6 @@ object Constants {
 
     const val FILM_DATABASE = "film_database"
 
+    const val FILM_PAGE_SIZE = 20
+
 }
