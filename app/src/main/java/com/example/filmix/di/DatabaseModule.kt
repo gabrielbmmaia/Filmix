@@ -25,8 +25,5 @@ object DatabaseModule {
             FilmDatabase::class.java,
             FILM_DATABASE
         ).build()
-
-
     }
-
 }
