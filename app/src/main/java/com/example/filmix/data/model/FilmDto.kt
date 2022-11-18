@@ -37,7 +37,7 @@ data class FilmDto(
             popularity = popularity ?: 0.0,
             posterPath = posterPath ?: "",
             releaseDate = releaseDate  ?: "",
-            voteAverage = voteAverage ?: 0.0,
+            voteAverage = voteAverage.toString(),
             voteCount = voteCount ?: 0
         )
     }

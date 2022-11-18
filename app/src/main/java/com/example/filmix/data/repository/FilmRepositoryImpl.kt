@@ -1,16 +1,14 @@
 package com.example.filmix.data.repository
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
+import androidx.paging.*
 import com.example.filmix.core.Constants.FILM_PAGE_SIZE
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.model.FilmDto
 import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.remote.FilmService
+import com.example.filmix.domain.model.Film
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 
@@ -20,17 +18,23 @@ class FilmRepositoryImpl @Inject constructor(
     private val filmDatabase: FilmDatabase
 ) {
 
-    fun getAllFilms(): Flow<PagingData<FilmDto>> {
+    fun getAllFilms(): Flow<PagingData<Film>> {
+
         val pagingSourceFactory = { filmDatabase.filmDao().getAllFilms() }
-        return flow {
-            Pager(
-                config = PagingConfig(pageSize = FILM_PAGE_SIZE),
-                remoteMediator = FilmRemoteMediator(
-                    filmService = filmService,
-                    filmDatabase = filmDatabase
-                ),
-                pagingSourceFactory = pagingSourceFactory
-            )
+
+        val pagingDataResult = Pager(
+            config = PagingConfig(pageSize = FILM_PAGE_SIZE),
+            remoteMediator = FilmRemoteMediator(
+                filmService = filmService,
+                filmDatabase = filmDatabase
+            ),
+            pagingSourceFactory = pagingSourceFactory
+        ).flow
+
+        val data = pagingDataResult.map { pagingData ->
+            pagingData.map { it.toFilm() }
         }
+
+        return data
     }
 }
