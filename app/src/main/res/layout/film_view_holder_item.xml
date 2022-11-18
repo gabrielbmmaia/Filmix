@@ -4,13 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="com.example.filmix.domain.model.Film" />
-
         <variable
             name="film"
             type="Film" />
-
     </data>
 
     <androidx.cardview.widget.CardView
@@ -31,6 +28,7 @@
                 android:layout_width="120dp"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
+                loadImageFromUrl="@{film}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="26dp"
-                android:text="@{film.originalTitle}"
+                filmTitle="@{film}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:maxLines="2"
@@ -51,7 +49,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/film_poster_image"
                 app:layout_constraintTop_toTopOf="@+id/film_poster_image"
-                tools:text="Black Adam " />
+                tools:text="Black Adam"/>
 
             <TextView
                 android:id="@+id/film_sinopse"
@@ -62,7 +60,7 @@
                 android:fontFamily="@font/rubik_light"
                 android:maxLines="4"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                filmSinopse="@{film}"
                 app:layout_constraintEnd_toEndOf="@+id/film_title"
                 app:layout_constraintStart_toStartOf="@+id/film_title"
                 app:layout_constraintTop_toBottomOf="@+id/film_title"
@@ -74,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:gravity="center"
-                android:text="@{film.voteAverage}"
+                filmRating="@{film}"
                 android:drawablePadding="4dp"
                 android:textColor="@color/white"
                 app:drawableStartCompat="@drawable/ic_rating_film"
