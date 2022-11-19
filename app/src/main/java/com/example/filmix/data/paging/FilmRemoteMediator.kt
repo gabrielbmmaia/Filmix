@@ -18,8 +18,8 @@ import javax.inject.Inject
   de dados quando os dados do Database forem
   consumidos pelo usuário.
   */
-@ExperimentalPagingApi
-class FilmRemoteMediator @Inject constructor(
+@OptIn(ExperimentalPagingApi::class)
+class FilmRemoteMediator (
     private val filmService: FilmService,
     private val filmDatabase: FilmDatabase
 ) : RemoteMediator<Int, FilmDto>() {

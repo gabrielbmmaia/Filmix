@@ -1,4 +1,4 @@
-package com.example.filmix.di
+package com.example.filmix.data.di
 
 import com.example.filmix.core.Constants.BASE_URL
 import com.example.filmix.data.remote.FilmService

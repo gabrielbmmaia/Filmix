@@ -1,4 +1,4 @@
-package com.example.filmix.di
+package com.example.filmix.data.di
 
 import android.content.Context
 import androidx.room.Room

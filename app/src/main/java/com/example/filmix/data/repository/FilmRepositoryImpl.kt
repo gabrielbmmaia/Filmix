@@ -7,18 +7,19 @@ import com.example.filmix.data.model.FilmDto
 import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.remote.FilmService
 import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 
-@ExperimentalPagingApi
+@OptIn(ExperimentalPagingApi::class)
 class FilmRepositoryImpl @Inject constructor(
     private val filmService: FilmService,
     private val filmDatabase: FilmDatabase
-) {
+): FilmRepository {
 
-    fun getAllFilms(): Flow<PagingData<Film>> {
+    override fun getAllFilms(): Flow<PagingData<Film>> {
 
         val pagingSourceFactory = { filmDatabase.filmDao().getAllFilms() }
 
