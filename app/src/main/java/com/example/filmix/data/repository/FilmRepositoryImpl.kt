@@ -1,11 +1,10 @@
 package com.example.filmix.data.repository
 
 import androidx.paging.*
-import com.example.filmix.core.Constants.FILM_MAX_PAGE_SIZE
 import com.example.filmix.core.Constants.FILM_PAGE_SIZE
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.paging.FilmRemoteMediator
-import com.example.filmix.data.remote.FilmService
+import com.example.filmix.data.remote.TMDBService
 import com.example.filmix.domain.model.Film
 import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @ExperimentalPagingApi
 class FilmRepositoryImpl @Inject constructor(
-    private val filmService: FilmService,
+    private val filmService: TMDBService,
     private val filmDatabase: FilmDatabase
 ) : FilmRepository {
 

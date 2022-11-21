@@ -3,7 +3,7 @@ package com.example.filmix.data.di
 import android.util.Log
 import com.example.filmix.core.Constants.BASE_URL
 import com.example.filmix.core.Constants.OK_HTTP
-import com.example.filmix.data.remote.FilmService
+import com.example.filmix.data.remote.TMDBService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,7 +46,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesFilmService(retrofit: Retrofit): FilmService {
-        return retrofit.create(FilmService::class.java)
+    fun providesFilmService(retrofit: Retrofit): TMDBService {
+        return retrofit.create(TMDBService::class.java)
     }
 }
