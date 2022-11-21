@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface FilmRepository {
 
-    fun getAllFilms(): Flow<PagingData<Film>>
+    fun getPopularFilms(): Flow<PagingData<Film>>
 
+    fun getSearchedFilms(query: String): Flow<PagingData<Film>>
 }

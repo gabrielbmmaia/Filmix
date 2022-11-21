@@ -9,5 +9,5 @@ import javax.inject.Inject
 class GetPopularFilmListUseCase @Inject constructor(
     private val filmRepository: FilmRepository
 ) {
-    operator fun invoke(): Flow<PagingData<Film>> = filmRepository.getAllFilms()
+    operator fun invoke(): Flow<PagingData<Film>> = filmRepository.getPopularFilms()
 }

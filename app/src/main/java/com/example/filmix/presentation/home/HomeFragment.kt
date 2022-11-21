@@ -14,7 +14,9 @@ import com.example.filmix.R
 import com.example.filmix.databinding.FragmentHomeBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {

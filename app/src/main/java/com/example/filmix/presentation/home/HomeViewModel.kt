@@ -27,9 +27,11 @@ class HomeViewModel @Inject constructor(
 
     private fun loadPopularFilms() {
         viewModelScope.launch(IO) {
-            filmUseCases.getPopularFilmList().cachedIn(viewModelScope).collect {
+            filmUseCases.getPopularFilmList().cachedIn(this).collectLatest {
                 _filmList.value = FilmListState.Success(it)
             }
         }
     }
+
+
 }
