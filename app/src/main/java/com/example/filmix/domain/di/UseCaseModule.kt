@@ -14,7 +14,6 @@ import javax.inject.Singleton
 object UseCaseModule {
 
     @Provides
-    @Singleton
     fun providesFilmUseCases(filmRepository: FilmRepository) =
         FilmUseCases(getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository))
 }

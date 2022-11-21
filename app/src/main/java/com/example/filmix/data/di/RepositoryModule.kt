@@ -1,5 +1,6 @@
 package com.example.filmix.data.di
 
+import androidx.paging.ExperimentalPagingApi
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.remote.FilmService
 import com.example.filmix.data.repository.FilmRepositoryImpl
@@ -10,12 +11,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+@OptIn(ExperimentalPagingApi::class)
 @Module
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
     @Provides
-    @Singleton
     fun providesFilmRepository(
         filmService: FilmService,
         filmDatabase: FilmDatabase

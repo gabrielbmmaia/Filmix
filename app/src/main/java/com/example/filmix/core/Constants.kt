@@ -8,6 +8,7 @@ object Constants {
     const val API_KEY = BuildConfig.API_KEY
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val BASE_POSTER_IMAGE_URL = "https://image.tmdb.org/t/p/w342"
+    const val OK_HTTP = "ok_http"
 
     // Room Constants
     const val FILM_TABLE = "film_table"
@@ -16,5 +17,6 @@ object Constants {
 
     // Paging Constants
     const val FILM_PAGE_SIZE = 20
+    const val FILM_MAX_PAGE_SIZE = FILM_PAGE_SIZE * 3
 
 }

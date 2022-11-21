@@ -9,13 +9,15 @@ import com.example.filmix.domain.model.Film
 
 @BindingAdapter("loadImageFromUrl")
 fun ImageView.loadImageFromUrl(film: Film) {
-    val finalUrl = BASE_POSTER_IMAGE_URL + film.posterPath
-    this.load(finalUrl)
+    film.posterPath?.let { posterPath ->
+        val finalUrl = BASE_POSTER_IMAGE_URL + posterPath
+        this.load(finalUrl)
+    }
 }
 
 @BindingAdapter("filmTitle")
 fun TextView.filmTitle(film: Film) {
-    text = film.originalTitle
+    text = film.title
 }
 
 @BindingAdapter("filmSinopse")

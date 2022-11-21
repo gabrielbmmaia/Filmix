@@ -4,38 +4,40 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.filmix.core.Constants.FILM_TABLE
 import com.example.filmix.domain.model.Film
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = FILM_TABLE)
 data class FilmDto(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    var pk: Long = 0,
+    @SerializedName("id")
     val id: Int,
-    @Json(name = "genre_ids")
-    val idGenres: List<Int>?,
-    @Json(name = "original_language")
+//    @SerializedName(name = "genre_ids")
+//    val idGenres: List<Int>?,
+    @SerializedName("original_language")
     val originalLanguage: String?,
-    @Json(name = "original_title")
-    val originalTitle: String?,
+    @SerializedName("title")
+    val title: String?,
     val overview: String?,
     val popularity: Double?,
-    @Json(name = "poster_path")
+    @SerializedName("poster_path")
     val posterPath: String?,
-    @Json(name = "release_date")
+    @SerializedName("release_date")
     val releaseDate: String?,
-    @Json(name = "vote_average")
+    @SerializedName("vote_average")
     val voteAverage: Double?,
-    @Json(name = "vote_count")
+    @SerializedName("vote_count")
     val voteCount: Long?
 ) {
     fun toFilm(): Film {
         return Film(
             id = id,
-            idGenres = idGenres ?: emptyList(),
+//            idGenres = idGenres ?: emptyList(),
             originalLanguage = originalLanguage ?: "",
-            originalTitle = originalTitle ?: "",
+            title = title ?: "",
             overview = overview ?: "",
             popularity = popularity ?: 0.0,
-            posterPath = posterPath ?: "",
+            posterPath = posterPath,
             releaseDate = releaseDate  ?: "",
             voteAverage = voteAverage ?: 0.0,
             voteCount = voteCount ?: 0

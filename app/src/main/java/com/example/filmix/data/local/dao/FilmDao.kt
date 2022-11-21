@@ -12,12 +12,12 @@ import com.example.filmix.domain.model.Film
 @Dao
 interface FilmDao {
 
-    @Query("SELECT * FROM $FILM_TABLE")
+    @Query("SELECT * FROM film_table")
     fun getAllFilms(): PagingSource<Int, FilmDto>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFilms(films: List<FilmDto>)
 
-    @Query("DELETE FROM $FILM_TABLE")
+    @Query("DELETE FROM film_table")
     suspend fun deleteAllFilms()
 }

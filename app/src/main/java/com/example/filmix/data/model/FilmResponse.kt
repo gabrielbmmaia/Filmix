@@ -1,13 +1,13 @@
 package com.example.filmix.data.model
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class FilmResponse(
     val page: Int,
-    @Json(name= "results")
+    @SerializedName("results")
     val films: List<FilmDto>,
-    @Json(name= "total_pages")
+    @SerializedName("total_pages")
     val totalPages: Int,
-    @Json(name = "total_results")
-    val totalResults:Int
+    @SerializedName("total_results")
+    val totalResults: Int
 )
