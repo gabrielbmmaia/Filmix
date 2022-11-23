@@ -9,6 +9,7 @@ object Constants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val BASE_POSTER_IMAGE_URL = "https://image.tmdb.org/t/p/w342"
     const val OK_HTTP = "ok_http"
+    const val DEFAULT_LANGUAGE = "pt-BR"
 
     // Room Constants
     const val FILM_TABLE = "film_table"

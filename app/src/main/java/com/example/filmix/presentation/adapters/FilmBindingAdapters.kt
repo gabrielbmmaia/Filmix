@@ -11,7 +11,10 @@ import com.example.filmix.domain.model.Film
 fun ImageView.loadImageFromUrl(film: Film) {
     film.posterPath?.let { posterPath ->
         val finalUrl = BASE_POSTER_IMAGE_URL + posterPath
-        this.load(finalUrl)
+        this.load(finalUrl){
+            crossfade( enable = true)
+            crossfade( durationMillis = 500)
+        }
     }
 }
 
