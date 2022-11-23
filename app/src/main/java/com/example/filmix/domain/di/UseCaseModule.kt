@@ -2,6 +2,7 @@ package com.example.filmix.domain.di
 
 import com.example.filmix.domain.repository.FilmRepository
 import com.example.filmix.domain.useCases.FilmUseCases
+import com.example.filmix.domain.useCases.GetFilmDetailsUseCase
 import com.example.filmix.domain.useCases.GetPopularFilmListUseCase
 import dagger.Module
 import dagger.Provides
@@ -15,5 +16,8 @@ object UseCaseModule {
 
     @Provides
     fun providesFilmUseCases(filmRepository: FilmRepository) =
-        FilmUseCases(getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository))
+        FilmUseCases(
+            getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository),
+            getFilmDetails = GetFilmDetailsUseCase(filmRepository = filmRepository)
+        )
 }

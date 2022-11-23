@@ -7,6 +7,7 @@ import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.paging.SearchFilmPagingSource
 import com.example.filmix.data.remote.TMDBService
 import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.model.FilmDetails
 import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -55,5 +56,10 @@ class FilmRepositoryImpl @Inject constructor(
         return pager.map { pagingData ->
             pagingData.map { it.toFilm() }
         }
+    }
+
+    override suspend fun getFilmDetails(filmId: Int): FilmDetails {
+        val serviceResponse = filmService.filmDetails(filmId)
+        return serviceResponse.toFilmDetails()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.filmix.data.model
 
+import com.example.filmix.domain.model.FilmDetails
 import com.google.gson.annotations.SerializedName
 
 data class FilmDetailsDto(
@@ -20,6 +21,27 @@ data class FilmDetailsDto(
     val status: String,
     val tagline: String,
     val title: String,
-    val vote_average: Double,
-    val vote_count: Int
-)
+    @SerializedName("vote_average")
+    val voteAverage: Double,
+    @SerializedName("vote_count")
+    val voteCount: Int
+) {
+    fun toFilmDetails(): FilmDetails {
+        return FilmDetails(
+            genres = genres,
+            id = id,
+            imdbId = imdbId,
+            originalLanguage = originalLanguage,
+            originalTitle = originalTitle,
+            overview = overview,
+            posterPath = posterPath,
+            releaseDate = releaseDate,
+            runtime = runtime,
+            status = status,
+            tagline = tagline,
+            title = title,
+            voteAverage = voteAverage,
+            voteCount = voteCount
+        )
+    }
+}

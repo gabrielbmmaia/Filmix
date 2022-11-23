@@ -12,8 +12,6 @@ data class FilmDto(
     var pk: Long = 0,
     @SerializedName("id")
     val id: Int,
-//    @SerializedName(name = "genre_ids")
-//    val idGenres: List<Int>?,
     @SerializedName("original_language")
     val originalLanguage: String?,
     @SerializedName("title")
@@ -32,7 +30,6 @@ data class FilmDto(
     fun toFilm(): Film {
         return Film(
             id = id,
-//            idGenres = idGenres ?: emptyList(),
             originalLanguage = originalLanguage ?: "",
             title = title ?: "",
             overview = overview ?: "",
