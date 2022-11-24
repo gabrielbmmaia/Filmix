@@ -24,7 +24,5 @@ class GetFilmDetailsUseCase @Inject constructor(
             Log.e(USECASE_TAG, e.stackTraceToString() )
             emit(Resource.Error(message = "Não foi possível se conectar"))
         }
-
     }
-
 }
