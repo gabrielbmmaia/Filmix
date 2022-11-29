@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
+import com.example.filmix.core.toBrazilianDate
 import com.example.filmix.domain.model.FilmDetails
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -39,7 +40,7 @@ fun TextView.filmDetailsOriginalTitle(filmDetails: FilmDetails?) {
 @BindingAdapter("filmDetailsReleaseDate")
 fun TextView.filmDetailsReleaseDate(filmDetails: FilmDetails?) {
     filmDetails?.releaseDate?.let {
-        text = it
+        text = it.toBrazilianDate()
     }
 }
 
