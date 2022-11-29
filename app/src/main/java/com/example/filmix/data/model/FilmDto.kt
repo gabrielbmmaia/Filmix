@@ -8,10 +8,8 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = FILM_TABLE)
 data class FilmDto(
-    @PrimaryKey(autoGenerate = true)
-    var pk: Long = 0,
-    @SerializedName("id")
-    val id: Int,
+    @PrimaryKey(autoGenerate = false)
+    val id: String,
     @SerializedName("original_language")
     val originalLanguage: String?,
     @SerializedName("title")

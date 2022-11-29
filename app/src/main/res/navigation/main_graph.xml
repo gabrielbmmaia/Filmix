@@ -8,6 +8,19 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.filmix.presentation.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Filmix"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.filmix.presentation.details.DetailsFragment"
+        android:label="Detalhes"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="filmId"
+            app:argType="string" />
+    </fragment>
 </navigation>

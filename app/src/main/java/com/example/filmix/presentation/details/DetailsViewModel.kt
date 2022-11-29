@@ -1,24 +1,47 @@
 package com.example.filmix.presentation.details
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.filmix.core.Resource
 import com.example.filmix.domain.useCases.FilmUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel(
+class DetailsViewModel @Inject constructor(
     private val filmUseCases: FilmUseCases
 ) : ViewModel() {
 
-    private val _details = MutableStateFlow<DetailsState>(DetailsState.Empty)
-    val details = _details.asStateFlow()
+    private val _detailsState = MutableStateFlow<DetailsState>(DetailsState.Empty)
+    val detailsState: StateFlow<DetailsState> get() = _detailsState
 
-    init {
-        loadDetails()
-    }
+    fun loadDetails(filmId: String) {
+        viewModelScope.launch(IO) {
+            filmUseCases.getFilmDetails(filmId).collect { result ->
+                when (result) {
+                    is Resource.Error -> {
+                        _detailsState.value =
+                            DetailsState.Error(message = result.message!!)
+                    }
 
-    private fun loadDetails(){
+                    is Resource.Success -> {
+                        _detailsState.value =
+                            DetailsState.Success(data = result.data!!)
+                    }
 
+                    Resource.Loading -> {
+                        _detailsState.value =
+                            DetailsState.Loading
+                    }
+                }
+            }
+        }
     }
 }

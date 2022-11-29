@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.filmix.databinding.FilmViewHolderItemBinding
 import com.example.filmix.domain.model.Film
 
-class FilmViewHolder(private val binding: FilmViewHolderItemBinding) :
+class FilmViewHolder(val binding: FilmViewHolderItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(film: Film) {

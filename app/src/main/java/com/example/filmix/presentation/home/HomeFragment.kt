@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filmix.R
@@ -39,6 +40,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         updateUi()
+        toDetailsFragment()
     }
 
     private fun updateUi() {
@@ -56,10 +58,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-
     private fun initRecyclerView() {
         adapter = FilmPagingAdapter()
         binding.homeRecyclewview.adapter = adapter
+    }
+
+    private fun toDetailsFragment(){
+        adapter.onClickItem { filmId ->
+            Log.e("TAG", "$filmId" )
+            val action = HomeFragmentDirections.homeFragmentToDetailsFragment(filmId)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {

@@ -5,11 +5,9 @@
 
     <data>
 
-        <import type="com.example.filmix.domain.model.FilmDetails" />
-
         <variable
             name="filmDetails"
-            type="FilmDetails" />
+            type="com.example.filmix.domain.model.FilmDetails" />
     </data>
 
 
@@ -22,12 +20,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black">
+            android:background="?attr/colorPrimaryVariant">
 
             <ImageView
                 android:id="@+id/details_poster_image"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="600dp"
                 loadPosterFromUrl="@{filmDetails}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,68 +35,97 @@
 
             <TextView
                 android:id="@+id/details_title"
+                filmDetailsTitle="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textSize="20sp"
-                filmDetailsTitle="@{filmDetails}"
-                android:textColor="@color/white"
+                style="@style/TextAppearance.AppCompat.Headline1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/details_poster_image"
                 tools:text="Adão Negro" />
 
             <TextView
+                android:id="@+id/details_date"
+                filmDetailsReleaseDate="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:textSize="16sp"
-                filmDetailsReleaseDate="@{filmDetails}"
-                android:textColor="@color/white"
+                style="@style/TextAppearance.AppCompat.NormalText.Drawable"
+                app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/details_rating"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/details_original_title"
-                tools:text="19/10/2022"
-                android:drawablePadding="4dp"
-                app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24" />
+                app:layout_constraintTop_toTopOf="@+id/details_rating"
+                tools:text="19/10/2022" />
+
+            <TextView
+                android:id="@+id/details_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                filmDetailsRating="@{filmDetails}"
+                android:layout_marginTop="16dp"
+                style="@style/TextAppearance.AppCompat.NormalText.Drawable"
+                app:drawableStartCompat="@drawable/ic_rating_film"
+                app:layout_constraintStart_toStartOf="@+id/details_title"
+                app:layout_constraintTop_toBottomOf="@+id/details_original_title"
+                tools:text="7.0" />
+
+            <TextView
+                android:id="@+id/details_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.NormalText"
+                app:layout_constraintStart_toStartOf="@+id/details_title"
+                app:layout_constraintTop_toBottomOf="@+id/details_rating"
+                tools:text="Gêneros: Ação, Aventura, Ficção" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.NormalText"
+                filmDetailsDuration="@{filmDetails}"
+                app:layout_constraintEnd_toEndOf="@+id/details_date"
+                app:layout_constraintTop_toTopOf="@+id/details_genre"
+                tools:text="Duração: 175" />
 
             <TextView
                 android:id="@+id/details_original_title"
+                filmDetailsOriginalTitle="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:textSize="16sp"
-                filmDetailsOriginalTitle="@{filmDetails}"
-                android:textStyle="italic"
-                android:textColor="@color/white"
+                style="@style/TextAppearance.AppCompat.Subtitle"
+                app:layout_constraintEnd_toEndOf="@+id/details_title"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/details_title"
                 app:layout_constraintTop_toBottomOf="@+id/details_title"
                 tools:text="Black Adam" />
 
             <TextView
                 android:id="@+id/details_overview"
+                filmDetailsOverview="@{filmDetails}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                filmDetailsOverview="@{filmDetails}"
-                android:textColor="@color/white"
                 android:justificationMode="inter_word"
+                style="@style/TextAppearance.AppCompat.NormalText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details_original_title"
+                app:layout_constraintTop_toBottomOf="@+id/details_genre"
                 tools:text="@tools:sample/lorem[50]" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                filmDetailsTagLine="@{filmDetails}"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
-                app:layout_constraintTop_toBottomOf="@+id/details_overview"
-                tools:text="- O mundo precisava de um herói. Agora ele tem Adão Negro." />
+<!--            <TextView-->
+<!--                filmDetailsTagLine="@{filmDetails}"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="end"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="italic"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/details_overview"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/vertical_guideline"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/details_overview"-->
+<!--                tools:text="- O mundo precisava de um herói. Agora ele tem Adão Negro." />-->
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/vertical_guideline"

@@ -24,6 +24,7 @@ object DatabaseModule {
             context,
             FilmDatabase::class.java,
             FILM_DATABASE
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
 }

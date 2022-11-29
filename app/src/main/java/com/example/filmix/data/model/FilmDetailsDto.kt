@@ -2,10 +2,11 @@ package com.example.filmix.data.model
 
 import com.example.filmix.domain.model.FilmDetails
 import com.google.gson.annotations.SerializedName
+import java.util.Date
 
 data class FilmDetailsDto(
     val genres: List<Genre>,
-    val id: Int,
+    val id: String,
     @SerializedName("imdb_id")
     val imdbId: String?,
     @SerializedName("original_language")
@@ -16,7 +17,7 @@ data class FilmDetailsDto(
     @SerializedName("poster_path")
     val posterPath: String?,
     @SerializedName("release_date")
-    val releaseDate: String,
+    val releaseDate: String?,
     val runtime: Int?,
     val status: String,
     val tagline: String,

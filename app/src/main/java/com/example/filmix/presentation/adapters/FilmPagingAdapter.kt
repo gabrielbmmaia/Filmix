@@ -19,14 +19,25 @@ class FilmPagingAdapter : PagingDataAdapter<Film,
         }
     }
 
+    private var onClick: ((String) -> Unit)? = null
+    fun onClickItem(listener: (String) -> Unit){
+        onClick = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         return FilmViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val filmItem = getItem(position)
-        filmItem?.let {
-            (holder as FilmViewHolder).bind(it)
+        holder as FilmViewHolder
+        filmItem?.let { film ->
+            holder.bind(film)
+            holder.binding.root.setOnClickListener {
+                onClick?.let {
+                    it(film.id)
+                }
+            }
         }
     }
 }

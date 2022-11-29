@@ -7,7 +7,7 @@ import com.example.filmix.core.Constants.FILM_REMOTE_KEYS_TABLE
 @Entity(tableName = FILM_REMOTE_KEYS_TABLE)
 data class FilmRemoteKeys(
     @PrimaryKey(autoGenerate = false)
-    val id: Int,
+    val id: String,
     val prevPage: Int?,
     val nextPage: Int?
 )

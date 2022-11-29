@@ -11,7 +11,7 @@ import com.example.filmix.data.model.FilmRemoteKeys
 interface FilmRemoteKeysDao {
 
     @Query("SELECT * FROM film_remote_keys_table WHERE id=:id")
-    suspend fun getRemoteKey(id: Int): FilmRemoteKeys
+    suspend fun getRemoteKey(id: String): FilmRemoteKeys
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(remoteKeys: List<FilmRemoteKeys>)

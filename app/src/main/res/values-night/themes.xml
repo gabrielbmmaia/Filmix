@@ -1,16 +1,55 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Filmix" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Filmix" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/black_ebony</item>
+        <item name="colorPrimaryVariant">@color/black_ebony</item>
+        <item name="colorOnPrimary">@color/blue_oxford</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white_smoke</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextAppearance.AppCompat.Headline1">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Headline2">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Subtitle">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/roboto_italic</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.NormalText">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.NormalTextBold">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.NormalText.Drawable" parent="TextAppearance.AppCompat.NormalText">
+        <item name="android:drawablePadding">4dp</item>
+        <item name="drawableTint">?attr/colorOnSecondary</item>
+    </style>
+
 </resources>

@@ -13,15 +13,20 @@ class GetFilmDetailsUseCase @Inject constructor(
     private val filmRepository: FilmRepository
 ) {
 
-    operator fun invoke(filmId: Int): Flow<Resource<FilmDetails>> = flow {
+    operator fun invoke(filmId: String): Flow<Resource<FilmDetails>> = flow {
         try {
             emit(Resource.Loading)
 
             val filmDetails = filmRepository.getFilmDetails(filmId = filmId)
-            emit(Resource.Success(filmDetails))
 
+            if (filmDetails.isSuccessful) {
+
+                val response = filmDetails.body()?.toFilmDetails()
+                Log.e("TAG", response.toString())
+                emit(Resource.Success(response))
+            }
         } catch (e: Exception) {
-            Log.e(USECASE_TAG, e.stackTraceToString() )
+            Log.e(USECASE_TAG, e.stackTraceToString())
             emit(Resource.Error(message = "Não foi possível se conectar"))
         }
     }
