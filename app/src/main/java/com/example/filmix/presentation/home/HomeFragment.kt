@@ -1,7 +1,6 @@
 package com.example.filmix.presentation.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,15 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.paging.map
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentHomeBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -39,16 +34,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        updateUi()
+        updateList()
+        updateTrending()
         toDetailsFragment()
     }
 
-    private fun updateUi() {
+    private fun updateTrending(){
+        lifecycleScope.launchWhenStarted {
+            viewModel.trendingFilm.collectLatest { result ->
+                when(result) {
+                    is TrendingState.Error -> {}
+                    TrendingState.Loading -> {}
+                    is TrendingState.Success -> TODO()
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun updateList() {
         lifecycleScope.launchWhenStarted {
             viewModel.filmList.collectLatest { result ->
                 when (result) {
 
-                    is FilmListState.Success -> {
+                    is FilmPagingState.Success -> {
                         adapter.submitData(result.data)
 
                     }
@@ -65,7 +74,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun toDetailsFragment(){
         adapter.onClickItem { filmId ->
-            Log.e("TAG", "$filmId" )
             val action = HomeFragmentDirections.homeFragmentToDetailsFragment(filmId)
             findNavController().navigate(action)
         }

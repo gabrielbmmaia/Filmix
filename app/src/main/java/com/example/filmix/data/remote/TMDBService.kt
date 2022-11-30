@@ -31,5 +31,5 @@ interface TMDBService {
         @Path("movie_id") filmId: Int,
         @Query("api_key") key: String = API_KEY,
         @Query("language") language: String = DEFAULT_LANGUAGE
-    ): Response<FilmDetailsDto>
+    ): FilmDetailsDto
 }

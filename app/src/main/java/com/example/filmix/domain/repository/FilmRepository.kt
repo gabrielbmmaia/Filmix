@@ -13,5 +13,5 @@ interface FilmRepository {
 
     fun getSearchedFilms(query: String): Flow<PagingData<Film>>
 
-    suspend fun getFilmDetails(filmId: String): Response<FilmDetailsDto>
+    suspend fun getFilmDetails(filmId: String): FilmDetails
 }
