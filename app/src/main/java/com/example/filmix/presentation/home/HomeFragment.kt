@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.filmix.MainActivity
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentHomeBinding
@@ -85,6 +86,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initRecyclerView() {
         adapter = FilmPagingAdapter()
         binding.homeRecyclewview.adapter = adapter
+
 
     }
 

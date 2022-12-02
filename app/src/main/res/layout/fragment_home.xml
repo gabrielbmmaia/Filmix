@@ -35,8 +35,9 @@
                     <ImageView
                         android:id="@+id/trending_film_poster"
                         loadImageFromUrlNoFade="@{trendingFilm}"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="610dp"
+                        android:adjustViewBounds="true"
                         android:background="@drawable/gradient_shape"
                         android:contentDescription="@string/poster_film"
                         android:scaleType="centerCrop"
@@ -63,13 +64,13 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.65"
+                            app:layout_constraintVertical_bias="0.6"
                             tools:text="Ação•Aventura•Guerra" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="6dp"
                             android:orientation="horizontal"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -105,8 +106,9 @@
             android:layout_height="match_parent"
             android:nestedScrollingEnabled="true"
             android:background="?attr/colorSecondary"
+            app:spanCount="2"
             android:scrollbars="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/film_view_holder_item" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
