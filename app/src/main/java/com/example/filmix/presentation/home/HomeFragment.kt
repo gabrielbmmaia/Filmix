@@ -1,13 +1,18 @@
 package com.example.filmix.presentation.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.example.filmix.MainActivity
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentHomeBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
@@ -17,11 +22,18 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+    lateinit var mActivity: FragmentActivity
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var adapter: FilmPagingAdapter
     private val viewModel by viewModels<HomeViewModel>()
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity?.let { mActivity = it }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +49,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         updateList()
         updateTrending()
         toDetailsFragment()
+//        setUpToolbar()
     }
 
-    private fun updateTrending(){
+    private fun updateTrending() {
         lifecycleScope.launchWhenStarted {
             viewModel.trendingFilm.collectLatest { result ->
-                when(result) {
+                when (result) {
                     is TrendingState.Error -> {}
                     TrendingState.Loading -> {}
-                    is TrendingState.Success -> TODO()
+                    is TrendingState.Success -> {
+                        binding.trendingFilm = result.data
+                    }
                     else -> {}
                 }
             }
@@ -70,14 +85,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initRecyclerView() {
         adapter = FilmPagingAdapter()
         binding.homeRecyclewview.adapter = adapter
+
     }
 
-    private fun toDetailsFragment(){
+    private fun toDetailsFragment() {
         adapter.onClickItem { filmId ->
             val action = HomeFragmentDirections.homeFragmentToDetailsFragment(filmId)
             findNavController().navigate(action)
         }
     }
+
+//    private fun setUpToolbar() {
+//        val mainActivity = mActivity as MainActivity
+//
+//        val toolbar = binding.toolbar
+//        mainActivity.setSupportActionBar(toolbar)
+//        val navController = NavHostFragment.findNavController(fragment = this)
+//        val appBarConfiguration = mainActivity.appBarConfiguration
+//        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
+//    }
 
     override fun onDestroy() {
         super.onDestroy()

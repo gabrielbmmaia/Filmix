@@ -7,8 +7,8 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.filmix.data.local.FilmDatabase
-import com.example.filmix.data.model.FilmDto
-import com.example.filmix.data.model.FilmRemoteKeys
+import com.example.filmix.data.model.films.FilmDto
+import com.example.filmix.data.model.films.FilmRemoteKeys
 import com.example.filmix.data.remote.TMDBService
 
 @OptIn(ExperimentalPagingApi::class)

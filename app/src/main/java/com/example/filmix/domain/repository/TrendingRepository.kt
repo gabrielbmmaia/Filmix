@@ -1,9 +1,9 @@
 package com.example.filmix.domain.repository
 
-import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.model.TrendingFilm
 
 interface TrendingRepository {
 
-    suspend fun getTrendingFilm(): Film
+    suspend fun getTrendingFilm(): TrendingFilm
 
 }

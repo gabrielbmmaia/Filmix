@@ -1,8 +1,8 @@
-package com.example.filmix.data.model
+package com.example.filmix.data.model.films
 
+import com.example.filmix.data.model.Genre
 import com.example.filmix.domain.model.FilmDetails
 import com.google.gson.annotations.SerializedName
-import java.util.Date
 
 data class FilmDetailsDto(
     val genres: List<Genre>,

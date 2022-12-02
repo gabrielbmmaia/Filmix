@@ -2,7 +2,7 @@ package com.example.filmix.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.filmix.data.model.FilmDto
+import com.example.filmix.data.model.films.FilmDto
 import com.example.filmix.data.remote.TMDBService
 
 class SearchFilmPagingSource(

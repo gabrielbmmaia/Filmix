@@ -5,9 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.filmix.core.Constants.FILM_TABLE
-import com.example.filmix.data.model.FilmDto
-import com.example.filmix.domain.model.Film
+import com.example.filmix.data.model.films.FilmDto
 
 @Dao
 interface FilmDao {

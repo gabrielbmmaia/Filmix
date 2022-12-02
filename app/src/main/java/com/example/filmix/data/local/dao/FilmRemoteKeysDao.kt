@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.filmix.core.Constants.FILM_REMOTE_KEYS_TABLE
-import com.example.filmix.data.model.FilmRemoteKeys
+import com.example.filmix.data.model.films.FilmRemoteKeys
 
 @Dao
 interface FilmRemoteKeysDao {

@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.filmix.data.local.dao.FilmDao
 import com.example.filmix.data.local.dao.FilmRemoteKeysDao
-import com.example.filmix.data.model.FilmDto
-import com.example.filmix.data.model.FilmRemoteKeys
+import com.example.filmix.data.model.films.FilmDto
+import com.example.filmix.data.model.films.FilmRemoteKeys
 
 @Database(
     entities = [FilmDto::class, FilmRemoteKeys::class],
