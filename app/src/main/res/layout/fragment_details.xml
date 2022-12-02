@@ -24,22 +24,22 @@
 
             <ImageView
                 android:id="@+id/details_poster_image"
+                loadPosterFromUrl="@{filmDetails}"
                 android:layout_width="match_parent"
                 android:layout_height="610dp"
-                loadPosterFromUrl="@{filmDetails}"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="centerCrop"
-                tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/details_title"
+                style="@style/Headline1"
                 filmDetailsTitle="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                style="@style/TextAppearance.AppCompat.Headline1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +48,11 @@
 
             <TextView
                 android:id="@+id/details_date"
+                style="@style/NormalText.Drawable"
                 filmDetailsReleaseDate="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                style="@style/TextAppearance.AppCompat.NormalText.Drawable"
                 app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24"
                 app:layout_constraintBottom_toBottomOf="@+id/details_rating"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,12 +61,11 @@
 
             <TextView
                 android:id="@+id/details_rating"
+                style="@style/NormalText.Drawable"
+                filmDetailsRating="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                filmDetailsRating="@{filmDetails}"
                 android:layout_marginTop="16dp"
-                style="@style/TextAppearance.AppCompat.NormalText.Drawable"
                 app:drawableStartCompat="@drawable/ic_rating_film"
                 app:layout_constraintStart_toStartOf="@+id/details_title"
                 app:layout_constraintTop_toBottomOf="@+id/details_original_title"
@@ -74,28 +73,28 @@
 
             <TextView
                 android:id="@+id/details_genre"
+                style="@style/NormalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.NormalText"
                 app:layout_constraintStart_toStartOf="@+id/details_title"
                 app:layout_constraintTop_toBottomOf="@+id/details_rating"
                 tools:text="Gêneros: Ação, Aventura, Ficção" />
 
             <TextView
+                style="@style/NormalText"
+                filmDetailsDuration="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.NormalText"
-                filmDetailsDuration="@{filmDetails}"
                 app:layout_constraintEnd_toEndOf="@+id/details_date"
                 app:layout_constraintTop_toTopOf="@+id/details_genre"
                 tools:text="Duração: 175" />
 
             <TextView
                 android:id="@+id/details_original_title"
+                style="@style/Subtitle"
                 filmDetailsOriginalTitle="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Subtitle"
                 app:layout_constraintEnd_toEndOf="@+id/details_title"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/details_title"
@@ -104,35 +103,16 @@
 
             <TextView
                 android:id="@+id/details_overview"
+                style="@style/NormalText"
                 filmDetailsOverview="@{filmDetails}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:justificationMode="inter_word"
-                style="@style/TextAppearance.AppCompat.NormalText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/details_genre"
                 tools:text="@tools:sample/lorem[50]" />
-
-<!--            <TextView-->
-<!--                filmDetailsTagLine="@{filmDetails}"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="end"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textStyle="italic"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/details_overview"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/vertical_guideline"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/details_overview"-->
-<!--                tools:text="- O mundo precisava de um herói. Agora ele tem Adão Negro." />-->
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/vertical_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.35" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

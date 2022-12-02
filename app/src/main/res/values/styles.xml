@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Headline1">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Headline2">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Subtitle">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/roboto_italic</item>
+    </style>
+
+    <style name="NormalText">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="NormalTextBold">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="NormalText.Drawable" parent="NormalText">
+        <item name="android:drawablePadding">4dp</item>
+        <item name="drawableTint">?attr/colorOnSecondary</item>
+    </style>
+
+</resources>

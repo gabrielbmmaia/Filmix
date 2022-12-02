@@ -27,6 +27,14 @@ fun ImageView.loadImageFromUrlNoFade(filmDetails: FilmDetails?) {
     }
 }
 
+@BindingAdapter("loadFilmGenres")
+fun TextView.loadFilmGenres(filmDetails: FilmDetails?) {
+    filmDetails?.genres?.let { genreList ->
+        val genreNames = genreList.map { it.name }
+        text = genreNames.joinToString(" • ")
+    }
+}
+
 @BindingAdapter("filmTitle")
 fun TextView.filmTitle(film: Film?) {
     film?.let {
@@ -34,8 +42,8 @@ fun TextView.filmTitle(film: Film?) {
     }
 }
 
-@BindingAdapter("filmSinopse")
-fun TextView.filmSinopse(film: Film?) {
+@BindingAdapter("filmOverview")
+fun TextView.filmOverview(film: Film?) {
     film?.let {
         text = it.overview
     }

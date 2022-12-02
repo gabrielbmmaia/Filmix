@@ -51,13 +51,6 @@ fun TextView.filmDetailsOverview(filmDetails: FilmDetails?) {
     }
 }
 
-@BindingAdapter("filmDetailsTagLine")
-fun TextView.filmDetailsTagLine(filmDetails: FilmDetails?) {
-    filmDetails?.tagline?.let {
-        text = it
-    }
-}
-
 @BindingAdapter("filmDetailsRating")
 fun TextView.filmDetailsRating(filmDetails: FilmDetails?) {
     filmDetails?.voteAverage?.let {
@@ -71,10 +64,3 @@ fun TextView.filmDetailsDuration(filmDetails: FilmDetails?) {
         text = it.toString()
     }
 }
-
-//@BindingAdapter
-//fun TextView.filmDetailsGenre(filmDetails: FilmDetails?) {
-//    filmDetails?.genres?.let {
-//
-//    }
-//}
