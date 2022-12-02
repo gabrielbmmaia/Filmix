@@ -3,8 +3,7 @@ package com.example.filmix.domain.useCases
 import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
-import com.example.filmix.domain.model.Film
-import com.example.filmix.domain.model.TrendingFilm
+import com.example.filmix.domain.model.FilmDetails
 import com.example.filmix.domain.repository.TrendingRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -14,7 +13,7 @@ class GetTrendingFilmUseCase @Inject constructor(
     private val trendingRepository: TrendingRepository
 ) {
 
-    suspend operator fun invoke(): Flow<Resource<TrendingFilm>> = flow {
+    suspend operator fun invoke(): Flow<Resource<FilmDetails>> = flow {
         try {
             emit(Resource.Loading)
 

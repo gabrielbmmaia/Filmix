@@ -9,11 +9,11 @@ import androidx.room.withTransaction
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.model.films.FilmDto
 import com.example.filmix.data.model.films.FilmRemoteKeys
-import com.example.filmix.data.remote.TMDBService
+import com.example.filmix.data.remote.FilmService
 
 @OptIn(ExperimentalPagingApi::class)
 class FilmRemoteMediator(
-    private val filmService: TMDBService,
+    private val filmService: FilmService,
     private val filmDatabase: FilmDatabase
 ) : RemoteMediator<Int, FilmDto>() {
 

@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
 import com.example.filmix.domain.model.Film
-import com.example.filmix.domain.model.TrendingFilm
+import com.example.filmix.domain.model.FilmDetails
 
 @BindingAdapter("loadImageFromUrl")
 fun ImageView.loadImageFromUrl(film: Film?) {
@@ -20,8 +20,8 @@ fun ImageView.loadImageFromUrl(film: Film?) {
 }
 
 @BindingAdapter("loadImageFromUrlNoFade")
-fun ImageView.loadImageFromUrlNoFade(trendingFilm: TrendingFilm?) {
-    trendingFilm?.posterPath?.let { posterPath ->
+fun ImageView.loadImageFromUrlNoFade(filmDetails: FilmDetails?) {
+    filmDetails?.posterPath?.let { posterPath ->
         val finalUrl = BASE_POSTER_IMAGE_URL + posterPath
         this.load(finalUrl)
     }

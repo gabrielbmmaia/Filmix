@@ -3,10 +3,10 @@ package com.example.filmix.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.filmix.data.model.films.FilmDto
-import com.example.filmix.data.remote.TMDBService
+import com.example.filmix.data.remote.FilmService
 
 class SearchFilmPagingSource(
-    private val searchService: TMDBService,
+    private val searchService: FilmService,
     private val query: String
 ) : PagingSource<Int, FilmDto>() {
 

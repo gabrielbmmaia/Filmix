@@ -5,7 +5,7 @@ import com.example.filmix.core.Constants.FILM_PAGE_SIZE
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.paging.SearchFilmPagingSource
-import com.example.filmix.data.remote.TMDBService
+import com.example.filmix.data.remote.FilmService
 import com.example.filmix.domain.model.Film
 import com.example.filmix.domain.model.FilmDetails
 import com.example.filmix.domain.repository.FilmRepository
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @ExperimentalPagingApi
 class FilmRepositoryImpl @Inject constructor(
-    private val filmService: TMDBService,
+    private val filmService: FilmService,
     private val filmDatabase: FilmDatabase
 ) : FilmRepository {
 

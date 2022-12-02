@@ -2,7 +2,7 @@ package com.example.filmix.data.di
 
 import androidx.paging.ExperimentalPagingApi
 import com.example.filmix.data.local.FilmDatabase
-import com.example.filmix.data.remote.TMDBService
+import com.example.filmix.data.remote.FilmService
 import com.example.filmix.data.remote.TrendingService
 import com.example.filmix.data.repository.FilmRepositoryImpl
 import com.example.filmix.data.repository.TrendingRepositoryImpl
@@ -20,7 +20,7 @@ object RepositoryModule {
 
     @Provides
     fun providesFilmRepository(
-        filmService: TMDBService,
+        filmService: FilmService,
         filmDatabase: FilmDatabase
     ): FilmRepository = FilmRepositoryImpl(
         filmService = filmService,
@@ -29,8 +29,10 @@ object RepositoryModule {
 
     @Provides
     fun providesTrendingRepository(
-        trendingService: TrendingService
+        trendingService: TrendingService,
+        filmService: FilmService
     ): TrendingRepository = TrendingRepositoryImpl(
-        trendingService = trendingService
+        trendingService = trendingService,
+        filmService = filmService
     )
 }
