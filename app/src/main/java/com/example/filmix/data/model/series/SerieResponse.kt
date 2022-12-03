@@ -1,10 +1,11 @@
-package com.example.filmix.data.model.trending
+package com.example.filmix.data.model.series
 
 import com.google.gson.annotations.SerializedName
 
-data class TrendingResponse(
+data class SerieResponse(
     val page: Int,
-    val results: List<TrendingItemDto>,
+    @SerializedName("results")
+    val series: List<SerieDto>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")
