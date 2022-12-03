@@ -17,6 +17,9 @@ object Constants {
     const val FILM_TABLE = "film_table"
     const val FILM_REMOTE_KEYS_TABLE = "film_remote_keys_table"
     const val FILM_DATABASE = "film_database"
+    const val SERIE_TABLE = "serie_table"
+    const val SERIE_REMOTE_KEYS_TABLE = "serie_remote_keys_table"
+    const val SERIE_DATABASE = "serie_database"
 
     // Paging Constants
     const val FILM_PAGE_SIZE = 20
@@ -24,4 +27,5 @@ object Constants {
 
     // Log.e Constants
     const val USECASE_TAG = "use_case_error"
+    const val REMOTEMEDIATOR_TAG = "remote_mediator_tag"
 }

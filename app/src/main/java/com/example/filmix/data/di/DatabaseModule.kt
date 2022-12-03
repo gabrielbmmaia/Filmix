@@ -3,7 +3,9 @@ package com.example.filmix.data.di
 import android.content.Context
 import androidx.room.Room
 import com.example.filmix.core.Constants.FILM_DATABASE
+import com.example.filmix.core.Constants.SERIE_DATABASE
 import com.example.filmix.data.local.FilmDatabase
+import com.example.filmix.data.local.SerieDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +19,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(
+    fun provideFilmDatabase(
         @ApplicationContext context: Context
     ): FilmDatabase {
         return Room.databaseBuilder(
@@ -25,6 +27,19 @@ object DatabaseModule {
             FilmDatabase::class.java,
             FILM_DATABASE
         ).fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSerieDatabase(
+        @ApplicationContext context: Context
+    ): SerieDatabase {
+        return Room.databaseBuilder(
+            context,
+            SerieDatabase::class.java,
+            SERIE_DATABASE
+        ). fallbackToDestructiveMigration()
             .build()
     }
 }

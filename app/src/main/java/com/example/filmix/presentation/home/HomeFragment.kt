@@ -85,8 +85,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initRecyclerView() {
         adapter = FilmPagingAdapter()
         binding.homeRecyclewview.adapter = adapter
-
-
     }
 
     private fun toDetailsFragment() {

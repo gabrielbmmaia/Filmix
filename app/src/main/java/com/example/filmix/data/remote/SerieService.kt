@@ -3,6 +3,7 @@ package com.example.filmix.data.remote
 import com.example.filmix.core.Constants
 import com.example.filmix.core.Constants.DEFAULT_LANGUAGE
 import com.example.filmix.data.model.films.FilmResponse
+import com.example.filmix.data.model.series.SerieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,7 +14,7 @@ interface SerieService {
         @Query("api_key") key: String = Constants.API_KEY,
         @Query("page") page: Int,
         @Query("language") language: String = DEFAULT_LANGUAGE
-    ): FilmResponse
+    ): SerieResponse
 
 
 }
