@@ -14,7 +14,6 @@
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".presentation.home.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -30,15 +29,16 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:background="?attr/colorSecondary"
+                    android:layout_height="650dp">
 
                     <ImageView
                         android:id="@+id/trending_film_poster"
                         loadImageFromUrlNoFade="@{trendingFilm}"
                         android:layout_width="match_parent"
-                        android:layout_height="610dp"
+                        android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:background="@drawable/gradient_shape"
+                        android:background="@drawable/gradient_to_down"
                         android:contentDescription="@string/poster_film"
                         android:scaleType="centerCrop"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:background="@drawable/gradient_shape"
+                        android:background="@drawable/gradient_to_down"
                         app:layout_constraintBottom_toBottomOf="@+id/trending_film_poster"
                         app:layout_constraintEnd_toEndOf="@id/trending_film_poster"
                         app:layout_constraintStart_toStartOf="@+id/trending_film_poster">
@@ -105,7 +105,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:nestedScrollingEnabled="true"
-            android:background="?attr/colorSecondary"
             app:spanCount="2"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

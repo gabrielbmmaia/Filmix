@@ -1,10 +1,12 @@
 package com.example.filmix.presentation.adapters
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
+import com.example.filmix.core.invisible
 import com.example.filmix.domain.model.Film
 import com.example.filmix.domain.model.FilmDetails
 
@@ -42,16 +44,11 @@ fun TextView.filmTitle(film: Film?) {
     }
 }
 
-@BindingAdapter("filmOverview")
-fun TextView.filmOverview(film: Film?) {
-    film?.let {
-        text = it.overview
-    }
-}
-
 @BindingAdapter("filmRating")
 fun TextView.filmRating(film: Film?) {
     film?.let {
-        text = it.voteAverage.toString()
+        if (it.voteAverage >= 3.0) {
+            text = it.voteAverage.toString()
+        } else invisible()
     }
 }
