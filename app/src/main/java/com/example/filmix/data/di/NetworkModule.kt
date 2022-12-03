@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.filmix.core.Constants.BASE_URL
 import com.example.filmix.core.Constants.OK_HTTP
 import com.example.filmix.data.remote.FilmService
+import com.example.filmix.data.remote.SerieService
 import com.example.filmix.data.remote.TrendingService
 import dagger.Module
 import dagger.Provides
@@ -55,5 +56,11 @@ object NetworkModule {
     @Singleton
     fun providesTrendingService(retrofit: Retrofit): TrendingService {
         return retrofit.create(TrendingService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesSerieService(retrofit: Retrofit): SerieService {
+        return retrofit.create(SerieService::class.java)
     }
 }
