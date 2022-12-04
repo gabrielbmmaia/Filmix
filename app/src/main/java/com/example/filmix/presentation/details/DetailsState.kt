@@ -1,7 +1,6 @@
 package com.example.filmix.presentation.details
 
-import com.example.filmix.domain.model.FilmDetails
-import kotlinx.coroutines.flow.Flow
+import com.example.filmix.domain.model.film.FilmDetails
 
 sealed class DetailsState{
     class Success(val data: FilmDetails): DetailsState()

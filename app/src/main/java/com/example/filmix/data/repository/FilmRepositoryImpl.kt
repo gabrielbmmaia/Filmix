@@ -6,8 +6,8 @@ import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.paging.SearchFilmPagingSource
 import com.example.filmix.data.remote.FilmService
-import com.example.filmix.domain.model.Film
-import com.example.filmix.domain.model.FilmDetails
+import com.example.filmix.domain.model.film.Film
+import com.example.filmix.domain.model.film.FilmDetails
 import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

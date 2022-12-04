@@ -1,7 +1,7 @@
 package com.example.filmix.domain.useCases.filmUseCases
 
 import androidx.paging.PagingData
-import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.model.film.Film
 import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

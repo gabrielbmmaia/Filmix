@@ -7,7 +7,7 @@
 
         <variable
             name="trendingFilm"
-            type="com.example.filmix.domain.model.FilmDetails" />
+            type="com.example.filmix.domain.model.film.FilmDetails" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

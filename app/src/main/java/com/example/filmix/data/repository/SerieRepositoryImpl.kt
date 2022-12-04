@@ -5,7 +5,7 @@ import com.example.filmix.core.Constants.PAGE_SIZE
 import com.example.filmix.data.local.SerieDatabase
 import com.example.filmix.data.paging.SerieRemoteMediator
 import com.example.filmix.data.remote.SerieService
-import com.example.filmix.domain.model.Serie
+import com.example.filmix.domain.model.serie.Serie
 import com.example.filmix.domain.repository.SerieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

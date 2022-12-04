@@ -3,6 +3,7 @@ package com.example.filmix.data.model.series
 import com.example.filmix.data.model.GenreDto
 import com.example.filmix.data.model.series.additionalDtos.SerieCompanyDto
 import com.example.filmix.data.model.series.additionalDtos.SerieSeasonDto
+import com.example.filmix.domain.model.serie.SerieDetails
 import com.google.gson.annotations.SerializedName
 
 data class SerieDetailsDto(
@@ -28,4 +29,22 @@ data class SerieDetailsDto(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) {
+    fun toSerieDetails() =
+        SerieDetails(
+            id = id,
+            backdropPath = backdropPath,
+            lastAirDate = lastAirDate,
+            genres = genres.map { it.toGenre() },
+            homepage = homepage,
+            name = name,
+            companies = companies.map { it.toSerieCompany() },
+            numberOfEpisodes = numberOfEpisodes,
+            numberOfSeasons = numberOfEpisodes,
+            overview = overview,
+            posterPath = posterPath,
+            seasons = seasons.map { it.toSerieSeason() },
+            voteAverage = voteAverage,
+            voteCount = voteCount
+        )
+}

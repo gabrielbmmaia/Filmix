@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmix.databinding.FilmViewHolderItemBinding
-import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.model.film.Film
 
 class FilmViewHolder(val binding: FilmViewHolderItemBinding) :
     RecyclerView.ViewHolder(binding.root) {

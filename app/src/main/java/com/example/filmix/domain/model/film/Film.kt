@@ -1,4 +1,4 @@
-package com.example.filmix.domain.model
+package com.example.filmix.domain.model.film
 
 import java.io.Serializable
 

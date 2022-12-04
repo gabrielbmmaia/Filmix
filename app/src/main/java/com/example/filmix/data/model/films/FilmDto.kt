@@ -3,7 +3,7 @@ package com.example.filmix.data.model.films
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.filmix.core.Constants.FILM_TABLE
-import com.example.filmix.domain.model.Film
+import com.example.filmix.domain.model.film.Film
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = FILM_TABLE)

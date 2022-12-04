@@ -6,14 +6,7 @@ import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
 import com.example.filmix.core.toBrazilianDate
-import com.example.filmix.domain.model.FilmDetails
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.ZoneId
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeFormatterBuilder
+import com.example.filmix.domain.model.film.FilmDetails
 
 @BindingAdapter("loadPosterFromUrl")
 fun ImageView.loadPosterFromUrl(filmDetails: FilmDetails?) {

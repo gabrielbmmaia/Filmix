@@ -1,8 +1,8 @@
 package com.example.filmix.domain.repository
 
 import androidx.paging.PagingData
-import com.example.filmix.domain.model.Film
-import com.example.filmix.domain.model.FilmDetails
+import com.example.filmix.domain.model.film.Film
+import com.example.filmix.domain.model.film.FilmDetails
 import kotlinx.coroutines.flow.Flow
 
 interface FilmRepository {

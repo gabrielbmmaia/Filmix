@@ -3,7 +3,7 @@ package com.example.filmix.domain.useCases.filmUseCases
 import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
-import com.example.filmix.domain.model.FilmDetails
+import com.example.filmix.domain.model.film.FilmDetails
 import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

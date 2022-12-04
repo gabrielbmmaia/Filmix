@@ -1,14 +1,13 @@
 package com.example.filmix.presentation.adapters
 
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
 import com.example.filmix.core.invisible
-import com.example.filmix.domain.model.Film
-import com.example.filmix.domain.model.FilmDetails
+import com.example.filmix.domain.model.film.Film
+import com.example.filmix.domain.model.film.FilmDetails
 
 @BindingAdapter("loadImageFromUrl")
 fun ImageView.loadImageFromUrl(film: Film?) {
