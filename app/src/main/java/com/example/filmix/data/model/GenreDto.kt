@@ -1,6 +1,6 @@
 package com.example.filmix.data.model
 
-data class Genre(
+data class GenreDto(
     val id: Int,
     val name: String
 )

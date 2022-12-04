@@ -1,10 +1,9 @@
 package com.example.filmix.domain.model
 
-import com.example.filmix.data.model.Genre
-import java.util.*
+import com.example.filmix.data.model.GenreDto
 
 data class FilmDetails (
-    val genres: List<Genre>?,
+    val genres: List<GenreDto>?,
     val id: String,
     val imdbId: String?,
     val originalLanguage: String?,
