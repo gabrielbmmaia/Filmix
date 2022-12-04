@@ -1,10 +1,13 @@
 package com.example.filmix.domain.di
 
 import com.example.filmix.domain.repository.FilmRepository
+import com.example.filmix.domain.repository.SerieRepository
 import com.example.filmix.domain.repository.TrendingRepository
 import com.example.filmix.domain.useCases.filmUseCases.FilmUseCases
 import com.example.filmix.domain.useCases.filmUseCases.GetFilmDetailsUseCase
 import com.example.filmix.domain.useCases.filmUseCases.GetPopularFilmListUseCase
+import com.example.filmix.domain.useCases.serieUseCases.GetPopularSerieUseCase
+import com.example.filmix.domain.useCases.serieUseCases.SerieUseCases
 import com.example.filmix.domain.useCases.trendingUseCases.GetTrendingFilmUseCase
 import com.example.filmix.domain.useCases.trendingUseCases.TrendingUseCases
 import dagger.Module
@@ -29,4 +32,9 @@ object UseCaseModule {
             getTrendingFilm = GetTrendingFilmUseCase(trendingRepository = trendingRepository)
         )
 
+    @Provides
+    fun providesSerieUseCases(serieRepository: SerieRepository) =
+        SerieUseCases(
+            getPopularSerie = GetPopularSerieUseCase(serieRepository = serieRepository)
+        )
 }
