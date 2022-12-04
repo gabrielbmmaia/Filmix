@@ -1,4 +1,4 @@
-package com.example.filmix.domain.useCases
+package com.example.filmix.domain.useCases.trendingUseCases
 
 data class TrendingUseCases(
     val getTrendingFilm: GetTrendingFilmUseCase

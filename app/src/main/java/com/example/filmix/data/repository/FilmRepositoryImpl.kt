@@ -1,7 +1,7 @@
 package com.example.filmix.data.repository
 
 import androidx.paging.*
-import com.example.filmix.core.Constants.FILM_PAGE_SIZE
+import com.example.filmix.core.Constants.PAGE_SIZE
 import com.example.filmix.data.local.FilmDatabase
 import com.example.filmix.data.paging.FilmRemoteMediator
 import com.example.filmix.data.paging.SearchFilmPagingSource
@@ -25,7 +25,7 @@ class FilmRepositoryImpl @Inject constructor(
 
         val pager = Pager(
             config = PagingConfig(
-                pageSize = FILM_PAGE_SIZE
+                pageSize = PAGE_SIZE
             ),
             remoteMediator = FilmRemoteMediator(
                 filmService = filmService,
@@ -42,7 +42,7 @@ class FilmRepositoryImpl @Inject constructor(
     override fun getSearchedFilms(query: String): Flow<PagingData<Film>> {
         val pager = Pager(
             config = PagingConfig(
-                pageSize = FILM_PAGE_SIZE
+                pageSize = PAGE_SIZE
             ),
             pagingSourceFactory = {
                 SearchFilmPagingSource(

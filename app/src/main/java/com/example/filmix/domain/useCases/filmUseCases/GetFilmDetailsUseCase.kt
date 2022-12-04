@@ -1,24 +1,24 @@
-package com.example.filmix.domain.useCases
+package com.example.filmix.domain.useCases.filmUseCases
 
 import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
 import com.example.filmix.domain.model.FilmDetails
-import com.example.filmix.domain.repository.TrendingRepository
+import com.example.filmix.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetTrendingFilmUseCase @Inject constructor(
-    private val trendingRepository: TrendingRepository
+class GetFilmDetailsUseCase @Inject constructor(
+    private val filmRepository: FilmRepository
 ) {
 
-    suspend operator fun invoke(): Flow<Resource<FilmDetails>> = flow {
+    operator fun invoke(filmId: String): Flow<Resource<FilmDetails>> = flow {
         try {
             emit(Resource.Loading)
 
-            val trendingFilm = trendingRepository.getTrendingFilm()
-            emit(Resource.Success(data = trendingFilm))
+            val filmDetails = filmRepository.getFilmDetails(filmId = filmId)
+            emit(Resource.Success(filmDetails))
 
         } catch (e: Exception) {
             Log.e(USECASE_TAG, e.stackTraceToString())

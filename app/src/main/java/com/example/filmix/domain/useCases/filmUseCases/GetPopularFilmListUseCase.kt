@@ -1,4 +1,4 @@
-package com.example.filmix.domain.useCases
+package com.example.filmix.domain.useCases.filmUseCases
 
 import androidx.paging.PagingData
 import com.example.filmix.domain.model.Film

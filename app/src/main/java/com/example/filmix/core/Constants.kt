@@ -22,8 +22,8 @@ object Constants {
     const val SERIE_DATABASE = "serie_database"
 
     // Paging Constants
-    const val FILM_PAGE_SIZE = 20
-    const val FILM_MAX_PAGE_SIZE = FILM_PAGE_SIZE * 3
+    const val PAGE_SIZE = 20
+    const val FILM_MAX_PAGE_SIZE = PAGE_SIZE * 3
 
     // Log.e Constants
     const val USECASE_TAG = "use_case_error"
