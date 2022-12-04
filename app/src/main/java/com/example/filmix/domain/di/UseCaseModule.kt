@@ -7,6 +7,7 @@ import com.example.filmix.domain.useCases.filmUseCases.FilmUseCases
 import com.example.filmix.domain.useCases.filmUseCases.GetFilmDetailsUseCase
 import com.example.filmix.domain.useCases.filmUseCases.GetPopularFilmListUseCase
 import com.example.filmix.domain.useCases.serieUseCases.GetPopularSerieUseCase
+import com.example.filmix.domain.useCases.serieUseCases.GetSerieDetailsUseCase
 import com.example.filmix.domain.useCases.serieUseCases.SerieUseCases
 import com.example.filmix.domain.useCases.trendingUseCases.GetTrendingFilmUseCase
 import com.example.filmix.domain.useCases.trendingUseCases.TrendingUseCases
@@ -35,6 +36,7 @@ object UseCaseModule {
     @Provides
     fun providesSerieUseCases(serieRepository: SerieRepository) =
         SerieUseCases(
-            getPopularSerie = GetPopularSerieUseCase(serieRepository = serieRepository)
+            getPopularSerie = GetPopularSerieUseCase(serieRepository = serieRepository),
+            getSerieDetails = GetSerieDetailsUseCase(serieRepository = serieRepository)
         )
 }

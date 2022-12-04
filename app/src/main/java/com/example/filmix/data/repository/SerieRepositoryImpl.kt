@@ -6,6 +6,7 @@ import com.example.filmix.data.local.SerieDatabase
 import com.example.filmix.data.paging.SerieRemoteMediator
 import com.example.filmix.data.remote.SerieService
 import com.example.filmix.domain.model.serie.Serie
+import com.example.filmix.domain.model.serie.SerieDetails
 import com.example.filmix.domain.repository.SerieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -32,5 +33,10 @@ class SerieRepositoryImpl @Inject constructor(
         return page.map { pagingData ->
             pagingData.map { it.toSerie() }
         }
+    }
+
+    override suspend fun getSerieDetails(serieId: String): SerieDetails {
+        val serieDetailsDto = serieService.getSerieDetails(serieId = serieId.toInt())
+        return serieDetailsDto.toSerieDetails()
     }
 }
