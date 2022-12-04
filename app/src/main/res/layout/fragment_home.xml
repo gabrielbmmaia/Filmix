@@ -14,6 +14,7 @@
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorSecondary"
         tools:context=".presentation.home.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -46,11 +47,17 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <View
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:background="@drawable/gradient_to_down"
-                        app:layout_constraintBottom_toBottomOf="@+id/trending_film_poster"
+                        app:layout_constraintBottom_toBottomOf="@+id/trending_film_poster"/>
+
+<!--                    android:background="@drawable/gradient_to_down"-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@id/trending_film_poster"
                         app:layout_constraintStart_toStartOf="@+id/trending_film_poster">
 
