@@ -34,10 +34,12 @@ object RepositoryModule {
     @Provides
     fun providesTrendingRepository(
         trendingService: TrendingService,
-        filmService: FilmService
+        filmService: FilmService,
+        serieService: SerieService
     ): TrendingRepository = TrendingRepositoryImpl(
         trendingService = trendingService,
-        filmService = filmService
+        filmService = filmService,
+        serieService = serieService
     )
 
     @Provides

@@ -10,6 +10,7 @@ import com.example.filmix.domain.useCases.serieUseCases.GetPopularSerieUseCase
 import com.example.filmix.domain.useCases.serieUseCases.GetSerieDetailsUseCase
 import com.example.filmix.domain.useCases.serieUseCases.SerieUseCases
 import com.example.filmix.domain.useCases.trendingUseCases.GetTrendingFilmUseCase
+import com.example.filmix.domain.useCases.trendingUseCases.GetTrendingSerieUseCase
 import com.example.filmix.domain.useCases.trendingUseCases.TrendingUseCases
 import dagger.Module
 import dagger.Provides
@@ -30,7 +31,8 @@ object UseCaseModule {
     @Provides
     fun providesTrendingUseCases(trendingRepository: TrendingRepository) =
         TrendingUseCases(
-            getTrendingFilm = GetTrendingFilmUseCase(trendingRepository = trendingRepository)
+            getTrendingFilm = GetTrendingFilmUseCase(trendingRepository = trendingRepository),
+            getTrendingSerie = GetTrendingSerieUseCase(trendingRepository = trendingRepository)
         )
 
     @Provides
