@@ -22,8 +22,8 @@ class HomeViewModel @Inject constructor(
     private val _filmList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
     val filmList: StateFlow<FilmPagingState> get() = _filmList
 
-    private val _trendingFilm = MutableStateFlow<TrendingState>(TrendingState.Empty)
-    val trendingFilm: StateFlow<TrendingState> get() = _trendingFilm
+    private val _trendingFilm = MutableStateFlow<TrendingFilmState>(TrendingFilmState.Empty)
+    val trendingFilm: StateFlow<TrendingFilmState> get() = _trendingFilm
 
     init {
         loadPopularFilms()
@@ -44,19 +44,18 @@ class HomeViewModel @Inject constructor(
                 when (result) {
 
                     is Resource.Error -> {
-                        _trendingFilm.value = TrendingState.Error(message = result.message!!)
+                        _trendingFilm.value = TrendingFilmState.Error(message = result.message!!)
                     }
 
                     Resource.Loading -> {
-                        _trendingFilm.value = TrendingState.Loading
+                        _trendingFilm.value = TrendingFilmState.Loading
                     }
 
                     is Resource.Success -> {
-                        _trendingFilm.value = TrendingState.Success(data = result.data!!)
+                        _trendingFilm.value = TrendingFilmState.Success(data = result.data!!)
                     }
                 }
             }
         }
     }
-
 }

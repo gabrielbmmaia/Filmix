@@ -9,11 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.filmix.MainActivity
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentHomeBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
@@ -56,9 +52,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         lifecycleScope.launchWhenStarted {
             viewModel.trendingFilm.collectLatest { result ->
                 when (result) {
-                    is TrendingState.Error -> {}
-                    TrendingState.Loading -> {}
-                    is TrendingState.Success -> {
+                    is TrendingFilmState.Error -> {}
+                    TrendingFilmState.Loading -> {}
+                    is TrendingFilmState.Success -> {
                         binding.trendingFilm = result.data
                     }
                     else -> {}
