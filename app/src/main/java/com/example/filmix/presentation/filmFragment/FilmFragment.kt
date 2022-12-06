@@ -11,21 +11,21 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.filmix.R
-import com.example.filmix.databinding.FragmentHomeBinding
+import com.example.filmix.databinding.FragmentFilmBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class FilmFragment : Fragment(R.layout.fragment_film) {
 
     lateinit var mActivity: FragmentActivity
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentFilmBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var adapter: FilmPagingAdapter
-    private val viewModel by viewModels<HomeViewModel>()
+    private val viewModel by viewModels<FilmViewModel>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,7 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentFilmBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -85,7 +85,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun toDetailsFragment() {
         adapter.onClickItem { filmId ->
-            val action = HomeFragmentDirections.homeFragmentToDetailsFragment(filmId)
+            val action = FilmFragmentDirections.filmFragmentToDetailsFragment(filmId)
             findNavController().navigate(action)
         }
     }

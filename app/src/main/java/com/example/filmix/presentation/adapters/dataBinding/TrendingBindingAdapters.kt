@@ -1,4 +1,4 @@
-package com.example.filmix.presentation.adapters
+package com.example.filmix.presentation.adapters.dataBinding
 
 import android.widget.ImageView
 import android.widget.TextView

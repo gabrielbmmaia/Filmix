@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/filmFragment"
         android:title="@string/nav_bottom_film_icon"
         android:icon="@drawable/ic_film_icon"
         />
