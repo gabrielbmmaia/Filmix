@@ -1,4 +1,4 @@
-package com.example.filmix.presentation.home
+package com.example.filmix.presentation.filmFragment
 
 import android.content.Context
 import android.os.Bundle

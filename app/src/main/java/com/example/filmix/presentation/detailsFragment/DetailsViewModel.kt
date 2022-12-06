@@ -1,4 +1,4 @@
-package com.example.filmix.presentation.details
+package com.example.filmix.presentation.detailsFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.filmix.features.films.domain.model.Film
 
 class FilmPagingAdapter : PagingDataAdapter<Film,
-        ViewHolder>(FILM_COMPARATOR) {
+        ViewHolder>(comparator) {
 
     companion object {
-        private val FILM_COMPARATOR = object : DiffUtil.ItemCallback<Film>() {
+        private val comparator = object : DiffUtil.ItemCallback<Film>() {
             override fun areItemsTheSame(oldItem: Film, newItem: Film): Boolean =
                 oldItem.id == newItem.id
 

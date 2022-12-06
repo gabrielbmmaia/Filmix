@@ -34,9 +34,10 @@
         <item name="fontFamily">@font/roboto</item>
     </style>
 
-    <style name="NormalText.Drawable" parent="NormalText">
+    <style name="DrawableText" parent="NormalText">
         <item name="android:drawablePadding">4dp</item>
         <item name="drawableTint">?attr/colorOnSecondary</item>
     </style>
+
 
 </resources>

@@ -4,6 +4,6 @@ data class Serie(
     val id: String,
     val title: String?,
     val posterPath: String?,
-    val voteAverage: Int?,
+    val voteAverage: Double?,
     val voteCount: Int?
 )

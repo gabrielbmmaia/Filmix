@@ -1,4 +1,4 @@
-package com.example.filmix
+package com.example.filmix.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

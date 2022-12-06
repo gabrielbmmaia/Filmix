@@ -1,4 +1,4 @@
-package com.example.filmix.presentation.serie
+package com.example.filmix.presentation.serieFragment
 
 import com.example.filmix.features.serie.domain.model.SerieDetails
 

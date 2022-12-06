@@ -1,4 +1,4 @@
-package com.example.filmix.presentation.details
+package com.example.filmix.presentation.detailsFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.example.filmix.BR
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentDetailsBinding
-import com.example.filmix.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

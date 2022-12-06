@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:context=".presentation.details.DetailsFragment">
+        tools:context=".presentation.detailsFragment.DetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
 
             <TextView
                 android:id="@+id/details_date"
-                style="@style/NormalText.Drawable"
+                style="@style/DrawableText"
                 filmDetailsReleaseDate="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 
             <TextView
                 android:id="@+id/details_rating"
-                style="@style/NormalText.Drawable"
+                style="@style/DrawableText"
                 filmDetailsRating="@{filmDetails}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
