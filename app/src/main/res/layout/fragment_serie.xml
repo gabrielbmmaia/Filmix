@@ -15,7 +15,7 @@
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorSecondary"
+        android:background="@color/background_color"
         tools:context=".presentation.serieFragment.SerieFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -32,7 +32,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="650dp"
-                    android:background="?attr/colorSecondary">
+                    android:background="@color/background_color">
 
                     <ImageView
                         android:id="@+id/trending_serie_poster"

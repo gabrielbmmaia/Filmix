@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:backgroundTint="?attr/colorOnPrimary"
+            android:backgroundTint="@color/background_color"
             app:cardCornerRadius="4dp"
             app:cardElevation="4dp"
             app:cardPreventCornerOverlap="true"

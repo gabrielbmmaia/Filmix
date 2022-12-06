@@ -20,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimaryVariant">
+            android:background="@color/background_color">
 
             <ImageView
                 android:id="@+id/details_poster_image"

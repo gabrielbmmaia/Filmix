@@ -2,13 +2,13 @@
 <resources>
 
     <style name="Headline1">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">22sp</item>
         <item name="fontFamily">@font/roboto_bold</item>
     </style>
 
     <style name="Headline2">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">18sp</item>
         <item name="maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -16,19 +16,19 @@
     </style>
 
     <style name="Subtitle">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/roboto_italic</item>
     </style>
 
     <style name="NormalText">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="NormalTextBold">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/roboto</item>
@@ -36,7 +36,7 @@
 
     <style name="DrawableText" parent="NormalText">
         <item name="android:drawablePadding">4dp</item>
-        <item name="drawableTint">?attr/colorOnSecondary</item>
+        <item name="drawableTint">@color/text_color</item>
     </style>
 
 
