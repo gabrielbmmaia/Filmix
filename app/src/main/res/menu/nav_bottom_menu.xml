@@ -7,4 +7,10 @@
         android:icon="@drawable/ic_film_icon"
         />
 
+    <item
+        android:id="@+id/serieFragment"
+        android:title="@string/nav_bottom_serie_icon"
+        android:icon="@drawable/ic_serie_icon"
+        />
+
 </menu>

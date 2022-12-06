@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.filmix.presentation.filmFragment.HomeFragment"
-        android:label="Filmix"
+        android:label="Filmes"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/homeFragment_to_detailsFragment"
@@ -23,4 +23,9 @@
             android:name="filmId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/serieFragment"
+        android:name="com.example.filmix.presentation.serieFragment.SerieFragment"
+        android:label="Series"
+        tools:layout="@layout/fragment_serie"/>
 </navigation>

@@ -16,8 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    //    lateinit var navController: NavController
-//    lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -26,24 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-//        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
-////        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment))
-//        navController = navHostFragment.navController
-//
-//        bottomNavigation.setupWithNavController(navController)
-
         val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
-//        val navController = navHostFragment.navController
-//        val appBarConfig = AppBarConfiguration(navController.graph)
-
-//        binding.toolbar.setupWithNavController(navController,appBarConfig)
-
-
     }
-
-//    override fun onSupportNavigateUp(): Boolean {
-////        return NavigationUI.navigateUp(navController, appBarConfiguration)
-//    }
 }

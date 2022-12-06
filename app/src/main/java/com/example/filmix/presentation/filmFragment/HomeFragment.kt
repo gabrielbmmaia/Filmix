@@ -46,7 +46,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         updateList()
         updateTrending()
         toDetailsFragment()
-            }
+    }
 
     private fun updateTrending() {
         lifecycleScope.launchWhenStarted {
