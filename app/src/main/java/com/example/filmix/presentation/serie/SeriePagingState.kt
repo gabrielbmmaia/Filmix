@@ -1,7 +1,7 @@
 package com.example.filmix.presentation.serie
 
 import androidx.paging.PagingData
-import com.example.filmix.domain.model.serie.Serie
+import com.example.filmix.features.serie.domain.model.Serie
 
 sealed class SeriePagingState {
     class Success(val data: PagingData<Serie>) : SeriePagingState()

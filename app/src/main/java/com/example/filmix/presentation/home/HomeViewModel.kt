@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.example.filmix.core.Resource
-import com.example.filmix.domain.useCases.filmUseCases.FilmUseCases
-import com.example.filmix.domain.useCases.trendingUseCases.TrendingUseCases
+import com.example.filmix.features.films.domain.useCases.FilmUseCases
+import com.example.filmix.features.trending.domain.useCases.TrendingUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

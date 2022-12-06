@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.example.filmix.domain.model.film.Film" />
+        <import type="com.example.filmix.features.films.domain.model.Film" />
 
         <variable
             name="film"
-            type="com.example.filmix.domain.model.film.Film" />
+            type="com.example.filmix.features.films.domain.model.Film" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

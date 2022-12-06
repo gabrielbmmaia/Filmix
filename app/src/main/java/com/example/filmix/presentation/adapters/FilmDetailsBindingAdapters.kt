@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
 import com.example.filmix.core.toBrazilianDate
-import com.example.filmix.domain.model.film.FilmDetails
+import com.example.filmix.features.films.domain.model.FilmDetails
 
 @BindingAdapter("loadPosterFromUrl")
 fun ImageView.loadPosterFromUrl(filmDetails: FilmDetails?) {

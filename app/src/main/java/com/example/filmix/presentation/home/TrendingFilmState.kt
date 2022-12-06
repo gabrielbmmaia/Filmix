@@ -1,6 +1,6 @@
 package com.example.filmix.presentation.home
 
-import com.example.filmix.domain.model.film.FilmDetails
+import com.example.filmix.features.films.domain.model.FilmDetails
 
 sealed class TrendingFilmState {
     class Success(val data: FilmDetails) : TrendingFilmState()

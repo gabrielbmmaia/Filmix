@@ -3,7 +3,7 @@ package com.example.filmix.presentation.details
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.filmix.core.Resource
-import com.example.filmix.domain.useCases.filmUseCases.FilmUseCases
+import com.example.filmix.features.films.domain.useCases.FilmUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow

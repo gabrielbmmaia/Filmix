@@ -1,6 +1,6 @@
 package com.example.filmix.presentation.details
 
-import com.example.filmix.domain.model.film.FilmDetails
+import com.example.filmix.features.films.domain.model.FilmDetails
 
 sealed class DetailsState{
     class Success(val data: FilmDetails): DetailsState()
