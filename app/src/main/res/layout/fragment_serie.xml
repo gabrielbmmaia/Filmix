@@ -1,20 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="trendingSerie"
+            type="com.example.filmix.features.serie.domain.model.SerieDetails" />
+
     </data>
 
-    <FrameLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorSecondary"
         tools:context=".presentation.serieFragment.SerieFragment">
 
-        <TextView
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="650dp"
+                    android:background="?attr/colorSecondary">
+
+                    <ImageView
+                        android:id="@+id/trending_serie_poster"
+                        loadImageFromUrl="@{trendingSerie}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/gradient_to_down"
+                        android:contentDescription="@string/poster_serie"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@drawable/gradient_to_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/trending_serie_poster"
+                        app:layout_constraintEnd_toEndOf="@+id/trending_serie_poster"
+                        app:layout_constraintStart_toStartOf="@+id/trending_serie_poster" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/trending_serie_poster"
+                        app:layout_constraintStart_toStartOf="@+id/trending_serie_poster">
+
+                        <TextView
+                            android:id="@+id/trending_serie_genre"
+                            style="@style/NormalTextBold"
+                            loadItemGenres="@{trendingSerie}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/trending_interactions"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="Ação•Aventura•Guerra" />
+
+                        <LinearLayout
+                            android:id="@+id/trending_interactions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/trending_serie_trailer"
+                                style="@style/DrawableText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="40dp"
+                                android:drawablePadding="0dp"
+                                android:text="@string/trailer"
+                                app:drawableTopCompat="@drawable/ic_play_circle" />
+
+                            <TextView
+                                android:id="@+id/trending_serie_details"
+                                style="@style/DrawableText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="0dp"
+                                android:text="@string/saiba_mais"
+                                app:drawableTopCompat="@drawable/ic_details" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/serie_recyclewview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
-
-    </FrameLayout>
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:spanCount="2"
+            tools:listitem="@layout/serie_view_holder_item" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

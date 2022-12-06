@@ -1,9 +1,9 @@
 package com.example.filmix.features.films.domain.model
 
-import com.example.filmix.features.shared.GenreDto
+import com.example.filmix.features.shared.Genre
 
-data class FilmDetails (
-    val genres: List<GenreDto>?,
+data class FilmDetails(
+    val genres: List<Genre>?,
     val id: String,
     val imdbId: String?,
     val originalLanguage: String?,

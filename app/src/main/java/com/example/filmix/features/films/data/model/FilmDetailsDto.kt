@@ -1,7 +1,7 @@
 package com.example.filmix.features.films.data.model
 
-import com.example.filmix.features.shared.GenreDto
 import com.example.filmix.features.films.domain.model.FilmDetails
+import com.example.filmix.features.shared.GenreDto
 import com.google.gson.annotations.SerializedName
 
 data class FilmDetailsDto(
@@ -29,7 +29,7 @@ data class FilmDetailsDto(
 ) {
     fun toFilmDetails(): FilmDetails {
         return FilmDetails(
-            genres = genres,
+            genres = genres.map { it.toGenre() },
             id = id,
             imdbId = imdbId,
             originalLanguage = originalLanguage,

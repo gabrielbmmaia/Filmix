@@ -30,12 +30,12 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:background="?attr/colorSecondary"
-                    android:layout_height="650dp">
+                    android:layout_height="650dp"
+                    android:background="?attr/colorSecondary">
 
                     <ImageView
                         android:id="@+id/trending_film_poster"
-                        loadImageFromUrlNoFade="@{trendingFilm}"
+                        loadImageFromUrl="@{trendingFilm}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -51,11 +51,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:background="@drawable/gradient_to_down"
-                        app:layout_constraintBottom_toBottomOf="@+id/trending_film_poster"/>
+                        app:layout_constraintBottom_toBottomOf="@+id/trending_film_poster" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@id/trending_film_poster"
                         app:layout_constraintStart_toStartOf="@+id/trending_film_poster">
@@ -63,24 +63,24 @@
                         <TextView
                             android:id="@+id/trending_film_genre"
                             style="@style/NormalTextBold"
-                            loadFilmGenres="@{trendingFilm}"
+                            loadItemGenres="@{trendingFilm}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/trending_interactions"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.6"
                             tools:text="Ação•Aventura•Guerra" />
 
                         <LinearLayout
+                            android:id="@+id/trending_interactions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
+                            android:layout_margin="16dp"
                             android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/trending_film_genre">
+                            app:layout_constraintStart_toStartOf="parent">
 
                             <TextView
                                 android:id="@+id/trending_film_trailer"
@@ -91,6 +91,7 @@
                                 android:drawablePadding="0dp"
                                 android:text="@string/trailer"
                                 app:drawableTopCompat="@drawable/ic_play_circle" />
+
                             <TextView
                                 android:id="@+id/trending_film_details"
                                 style="@style/DrawableText"
@@ -111,10 +112,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:nestedScrollingEnabled="true"
-            app:spanCount="2"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:spanCount="2"
             tools:listitem="@layout/film_view_holder_item" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
