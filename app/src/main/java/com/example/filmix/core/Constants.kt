@@ -29,4 +29,5 @@ object Constants {
     // Log.e Constants
     const val USECASE_TAG = "use_case_error"
     const val REMOTEMEDIATOR_TAG = "remote_mediator_tag"
+    const val PAGINGSOURCE_TAG = "paging_source_tag"
 }
