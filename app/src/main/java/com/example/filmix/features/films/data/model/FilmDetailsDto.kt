@@ -1,7 +1,7 @@
 package com.example.filmix.features.films.data.model
 
 import com.example.filmix.features.films.domain.model.FilmDetails
-import com.example.filmix.features.shared.GenreDto
+import com.example.filmix.features.shared.data.model.GenreDto
 import com.google.gson.annotations.SerializedName
 
 data class FilmDetailsDto(

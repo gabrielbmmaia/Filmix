@@ -1,4 +1,4 @@
-package com.example.filmix.features.shared
+package com.example.filmix.features.shared.domain.model
 
 data class Genre(
     val id: Int,

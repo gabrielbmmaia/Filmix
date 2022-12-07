@@ -1,4 +1,4 @@
-package com.example.filmix.features.films.domain.repository
+package com.example.filmix.features.shared.domain.repository
 
 import androidx.paging.PagingData
 import com.example.filmix.features.films.domain.model.Film

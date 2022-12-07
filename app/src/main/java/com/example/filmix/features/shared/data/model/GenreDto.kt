@@ -1,4 +1,6 @@
-package com.example.filmix.features.shared
+package com.example.filmix.features.shared.data.model
+
+import com.example.filmix.features.shared.domain.model.Genre
 
 data class GenreDto(
     val id: Int,

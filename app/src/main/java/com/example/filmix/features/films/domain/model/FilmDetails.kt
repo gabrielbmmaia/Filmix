@@ -1,6 +1,6 @@
 package com.example.filmix.features.films.domain.model
 
-import com.example.filmix.features.shared.Genre
+import com.example.filmix.features.shared.domain.model.Genre
 
 data class FilmDetails(
     val genres: List<Genre>?,

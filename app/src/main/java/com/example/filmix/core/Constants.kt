@@ -14,14 +14,6 @@ object Constants {
     const val SERIE_MEDIA_TYPE = "tv"
     const val DAY_TIME_WINDOW = "day"
 
-    // Room Constants
-    const val FILM_TABLE = "film_table"
-    const val FILM_REMOTE_KEYS_TABLE = "film_remote_keys_table"
-    const val FILM_DATABASE = "film_database"
-    const val SERIE_TABLE = "serie_table"
-    const val SERIE_REMOTE_KEYS_TABLE = "serie_remote_keys_table"
-    const val SERIE_DATABASE = "serie_database"
-
     // Paging Constants
     const val PAGE_SIZE = 20
     const val FILM_MAX_PAGE_SIZE = PAGE_SIZE * 3

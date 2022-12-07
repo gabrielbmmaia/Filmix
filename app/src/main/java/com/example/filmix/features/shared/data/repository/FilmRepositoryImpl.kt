@@ -1,4 +1,4 @@
-package com.example.filmix.features.films.data.repository
+package com.example.filmix.features.shared.data.repository
 
 import androidx.paging.*
 import com.example.filmix.core.Constants.PAGE_SIZE
@@ -6,7 +6,7 @@ import com.example.filmix.features.films.data.paging.PopularFilmPagingSource
 import com.example.filmix.features.films.data.remote.FilmService
 import com.example.filmix.features.films.domain.model.Film
 import com.example.filmix.features.films.domain.model.FilmDetails
-import com.example.filmix.features.films.domain.repository.FilmRepository
+import com.example.filmix.features.shared.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
