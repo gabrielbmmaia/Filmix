@@ -1,7 +1,6 @@
 package com.example.filmix.di
 
 import androidx.paging.ExperimentalPagingApi
-import com.example.filmix.features.films.data.local.FilmDatabase
 import com.example.filmix.features.films.data.remote.FilmService
 import com.example.filmix.features.films.data.repository.FilmRepositoryImpl
 import com.example.filmix.features.films.domain.repository.FilmRepository
@@ -24,11 +23,9 @@ object RepositoryModule {
 
     @Provides
     fun providesFilmRepository(
-        filmService: FilmService,
-        filmDatabase: FilmDatabase
+        filmService: FilmService
     ): FilmRepository = FilmRepositoryImpl(
-        filmService = filmService,
-        filmDatabase = filmDatabase
+        filmService = filmService
     )
 
     @Provides
