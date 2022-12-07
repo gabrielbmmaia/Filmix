@@ -13,13 +13,12 @@ object Constants {
     const val FILM_MEDIA_TYPE = "movie"
     const val SERIE_MEDIA_TYPE = "tv"
     const val DAY_TIME_WINDOW = "day"
+    const val WEEK_TIME_WINDOW = "week"
 
     // Paging Constants
     const val PAGE_SIZE = 20
-    const val FILM_MAX_PAGE_SIZE = PAGE_SIZE * 3
 
     // Log.e Constants
     const val USECASE_TAG = "use_case_error"
-    const val REMOTEMEDIATOR_TAG = "remote_mediator_tag"
     const val PAGINGSOURCE_TAG = "paging_source_tag"
 }
