@@ -80,8 +80,8 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initRecyclerView() {
         adapter = FilmPagingAdapter()
-        binding.homeRecyclewview.hasFixedSize()
-        binding.homeRecyclewview.adapter = adapter
+        binding.rvListFilmList.hasFixedSize()
+        binding.rvListFilmList.adapter = adapter
     }
 
     private fun toDetailsFragment() {
