@@ -2,10 +2,10 @@ package com.example.filmix.di
 
 import androidx.paging.ExperimentalPagingApi
 import com.example.filmix.features.films.data.remote.FilmService
-import com.example.filmix.features.shared.domain.repository.FilmRepository
+import com.example.filmix.features.films.domain.repository.FilmRepository
 import com.example.filmix.features.serie.data.remote.SerieService
 import com.example.filmix.features.shared.domain.repository.SerieRepository
-import com.example.filmix.features.shared.data.repository.FilmRepositoryImpl
+import com.example.filmix.features.films.data.repository.FilmRepositoryImpl
 import com.example.filmix.features.shared.data.repository.SerieRepositoryImpl
 import com.example.filmix.features.trending.data.remote.TrendingService
 import com.example.filmix.features.trending.data.repository.TrendingRepositoryImpl

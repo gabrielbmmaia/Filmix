@@ -120,12 +120,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_populares"
+                    android:text="@string/tag_popular"
                     android:layout_margin="16dp"
                     style="@style/Headline1"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_list_film_list"
+                    android:id="@+id/rv_popular_film_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:listitem="@layout/film_view_holder_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_top_rated"
+                    android:layout_margin="16dp"
+                    style="@style/Headline1"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_top_rated_film_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"

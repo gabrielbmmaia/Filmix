@@ -6,8 +6,8 @@ import com.example.filmix.features.films.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetPopularFilmListUseCase @Inject constructor(
+class GetTopRatedFilmsUseCase @Inject constructor(
     private val filmRepository: FilmRepository
 ) {
-    operator fun invoke(): Flow<PagingData<Film>> = filmRepository.getPopularFilms()
+    operator fun invoke(): Flow<PagingData<Film>> = filmRepository.getTopRatedFilms()
 }

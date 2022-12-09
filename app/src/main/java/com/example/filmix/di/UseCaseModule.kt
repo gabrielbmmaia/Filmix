@@ -1,12 +1,13 @@
 package com.example.filmix.di
 
-import com.example.filmix.features.shared.domain.repository.FilmRepository
-import com.example.filmix.features.shared.domain.useCases.FilmUseCases
+import com.example.filmix.features.films.domain.repository.FilmRepository
 import com.example.filmix.features.films.domain.useCases.GetFilmDetailsUseCase
 import com.example.filmix.features.films.domain.useCases.GetPopularFilmListUseCase
-import com.example.filmix.features.shared.domain.repository.SerieRepository
+import com.example.filmix.features.films.domain.useCases.GetTopRatedFilmsUseCase
 import com.example.filmix.features.serie.domain.useCases.GetPopularSerieUseCase
 import com.example.filmix.features.serie.domain.useCases.GetSerieDetailsUseCase
+import com.example.filmix.features.shared.domain.repository.SerieRepository
+import com.example.filmix.features.shared.domain.useCases.FilmUseCases
 import com.example.filmix.features.shared.domain.useCases.SerieUseCases
 import com.example.filmix.features.trending.domain.repository.TrendingRepository
 import com.example.filmix.features.trending.domain.useCases.GetTrendingFilmUseCase
@@ -25,7 +26,8 @@ object UseCaseModule {
     fun providesFilmUseCases(filmRepository: FilmRepository) =
         FilmUseCases(
             getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository),
-            getFilmDetails = GetFilmDetailsUseCase(filmRepository = filmRepository)
+            getFilmDetails = GetFilmDetailsUseCase(filmRepository = filmRepository),
+            getTopRatedFilms = GetTopRatedFilmsUseCase(filmRepository = filmRepository)
         )
 
     @Provides

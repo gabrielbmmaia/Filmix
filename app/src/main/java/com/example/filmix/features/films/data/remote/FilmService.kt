@@ -21,6 +21,13 @@ interface FilmService {
         @Query("language") language: String = DEFAULT_LANGUAGE
     ): FilmResponse
 
+    @GET("movie/top_rated")
+    suspend fun getTopRatedFilms(
+        @Query("page") page: Int,
+        @Query("api_key") key: String = API_KEY,
+        @Query("language") language: String = DEFAULT_LANGUAGE
+    ): FilmResponse
+
     @GET("movie/{movie_id}")
     suspend fun filmDetails(
         @Path("movie_id") filmId: Int,

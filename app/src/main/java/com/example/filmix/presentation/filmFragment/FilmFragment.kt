@@ -24,7 +24,9 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     private var _binding: FragmentFilmBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var adapter: FilmPagingAdapter
+    private lateinit var popularAdapter: FilmPagingAdapter
+    private lateinit var ratedAdapter: FilmPagingAdapter
+
     private val viewModel by viewModels<FilmViewModel>()
 
     override fun onAttach(context: Context) {
@@ -42,10 +44,11 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initRecyclerView()
-        updateList()
+        initRecyclerViews()
+        updatePopularList()
         updateTrending()
         toDetailsFragment()
+        updateRatedList()
     }
 
     private fun updateTrending() {
@@ -63,13 +66,13 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
     }
 
-    private fun updateList() {
+    private fun updatePopularList() {
         lifecycleScope.launchWhenStarted {
-            viewModel.filmList.collectLatest { result ->
+            viewModel.filmPopularList.collectLatest { result ->
                 when (result) {
 
                     is FilmPagingState.Success -> {
-                        adapter.submitData(result.data)
+                        popularAdapter.submitData(result.data)
 
                     }
                     else -> {}
@@ -78,14 +81,33 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
     }
 
-    private fun initRecyclerView() {
-        adapter = FilmPagingAdapter()
-        binding.rvListFilmList.hasFixedSize()
-        binding.rvListFilmList.adapter = adapter
+    private fun updateRatedList() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.filmRatedList.collectLatest { result ->
+                when (result) {
+
+                    is FilmPagingState.Success -> {
+                        ratedAdapter.submitData(result.data)
+
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun initRecyclerViews() {
+        popularAdapter = FilmPagingAdapter()
+        binding.rvPopularFilmList.hasFixedSize()
+        binding.rvPopularFilmList.adapter = popularAdapter
+
+        ratedAdapter = FilmPagingAdapter()
+        binding.rvTopRatedFilmList.hasFixedSize()
+        binding.rvTopRatedFilmList.adapter = ratedAdapter
     }
 
     private fun toDetailsFragment() {
-        adapter.onClickItem { filmId ->
+        popularAdapter.onClickItem { filmId ->
             val action = FilmFragmentDirections.filmFragmentToDetailsFragment(filmId)
             findNavController().navigate(action)
         }

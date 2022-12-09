@@ -4,7 +4,7 @@ import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
 import com.example.filmix.features.films.domain.model.FilmDetails
-import com.example.filmix.features.shared.domain.repository.FilmRepository
+import com.example.filmix.features.films.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
