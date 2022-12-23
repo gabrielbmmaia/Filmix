@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
 import com.example.filmix.core.invisible
-import com.example.filmix.features.films.domain.model.Film
+import com.example.filmix.features.filmList.domain.model.Film
 import com.example.filmix.features.serie.domain.model.Serie
 
 @BindingAdapter("loadImageFromUrl")

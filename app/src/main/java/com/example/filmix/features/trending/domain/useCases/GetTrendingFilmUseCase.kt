@@ -3,7 +3,7 @@ package com.example.filmix.features.trending.domain.useCases
 import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
-import com.example.filmix.features.films.domain.model.FilmDetails
+import com.example.filmix.features.filmList.domain.model.FilmDetails
 import com.example.filmix.features.trending.domain.repository.TrendingRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

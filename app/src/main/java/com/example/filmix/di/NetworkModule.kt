@@ -3,7 +3,7 @@ package com.example.filmix.di
 import android.util.Log
 import com.example.filmix.core.Constants.BASE_URL
 import com.example.filmix.core.Constants.OK_HTTP
-import com.example.filmix.features.films.data.remote.FilmService
+import com.example.filmix.features.filmList.data.remote.FilmService
 import com.example.filmix.features.serie.data.remote.SerieService
 import com.example.filmix.features.trending.data.remote.TrendingService
 import dagger.Module

@@ -3,8 +3,8 @@ package com.example.filmix.features.trending.data.repository
 import com.example.filmix.core.Constants.DAY_TIME_WINDOW
 import com.example.filmix.core.Constants.FILM_MEDIA_TYPE
 import com.example.filmix.core.Constants.SERIE_MEDIA_TYPE
-import com.example.filmix.features.films.data.remote.FilmService
-import com.example.filmix.features.films.domain.model.FilmDetails
+import com.example.filmix.features.filmList.data.remote.FilmService
+import com.example.filmix.features.filmList.domain.model.FilmDetails
 import com.example.filmix.features.serie.data.remote.SerieService
 import com.example.filmix.features.serie.domain.model.SerieDetails
 import com.example.filmix.features.trending.data.remote.TrendingService

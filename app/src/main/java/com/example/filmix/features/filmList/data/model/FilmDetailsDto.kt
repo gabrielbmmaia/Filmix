@@ -1,6 +1,6 @@
-package com.example.filmix.features.films.data.model
+package com.example.filmix.features.filmList.data.model
 
-import com.example.filmix.features.films.domain.model.FilmDetails
+import com.example.filmix.features.filmList.domain.model.FilmDetails
 import com.example.filmix.features.shared.data.model.GenreDto
 import com.google.gson.annotations.SerializedName
 

@@ -7,7 +7,7 @@
 
         <variable
             name="filmDetails"
-            type="com.example.filmix.features.films.domain.model.FilmDetails" />
+            type="com.example.filmix.features.filmList.domain.model.FilmDetails" />
     </data>
 
 

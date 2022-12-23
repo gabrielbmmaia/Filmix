@@ -1,13 +1,13 @@
-package com.example.filmix.features.films.data.paging
+package com.example.filmix.features.filmList.data.paging
 
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.filmix.core.Constants.PAGINGSOURCE_TAG
-import com.example.filmix.features.films.data.model.FilmDto
-import com.example.filmix.features.films.data.remote.FilmService
+import com.example.filmix.core.Constants
+import com.example.filmix.features.filmList.data.model.FilmDto
+import com.example.filmix.features.filmList.data.remote.FilmService
 
-class PopularFilmPagingSource(
+class RatedFilmPagingSource(
     private val filmService: FilmService
 ) : PagingSource<Int, FilmDto>() {
 
@@ -16,7 +16,7 @@ class PopularFilmPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FilmDto> {
         val currentPage = params.key ?: 1
         return try {
-            val response = filmService.getPopularFilms(page = currentPage)
+            val response = filmService.getTopRatedFilms(page = currentPage)
             val endOfPaginationReached = response.films.isEmpty()
             if (response.films.isNotEmpty()) {
                 LoadResult.Page(
@@ -32,7 +32,7 @@ class PopularFilmPagingSource(
                 )
             }
         } catch (e: Exception) {
-            Log.e(PAGINGSOURCE_TAG, e.stackTraceToString())
+            Log.e(Constants.PAGINGSOURCE_TAG, e.stackTraceToString())
             LoadResult.Error(e)
         }
     }

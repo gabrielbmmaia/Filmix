@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.filmix.databinding.FilmViewHolderItemBinding
-import com.example.filmix.features.films.domain.model.Film
+import com.example.filmix.features.filmList.domain.model.Film
 
 class FilmPagingAdapter : PagingDataAdapter<Film, ViewHolder>(comparator) {
 

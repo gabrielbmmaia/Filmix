@@ -1,9 +1,9 @@
 package com.example.filmix.di
 
-import com.example.filmix.features.films.domain.repository.FilmRepository
-import com.example.filmix.features.films.domain.useCases.GetFilmDetailsUseCase
-import com.example.filmix.features.films.domain.useCases.GetPopularFilmListUseCase
-import com.example.filmix.features.films.domain.useCases.GetTopRatedFilmsUseCase
+import com.example.filmix.features.filmList.domain.repository.FilmRepository
+import com.example.filmix.features.filmList.domain.useCases.GetFilmDetailsUseCase
+import com.example.filmix.features.filmList.domain.useCases.GetPopularFilmListUseCase
+import com.example.filmix.features.filmList.domain.useCases.GetTopRatedFilmsUseCase
 import com.example.filmix.features.serie.domain.useCases.GetPopularSerieUseCase
 import com.example.filmix.features.serie.domain.useCases.GetSerieDetailsUseCase
 import com.example.filmix.features.shared.domain.repository.SerieRepository

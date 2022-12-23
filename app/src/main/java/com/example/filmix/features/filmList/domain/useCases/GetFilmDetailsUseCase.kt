@@ -1,10 +1,10 @@
-package com.example.filmix.features.films.domain.useCases
+package com.example.filmix.features.filmList.domain.useCases
 
 import android.util.Log
 import com.example.filmix.core.Constants.USECASE_TAG
 import com.example.filmix.core.Resource
-import com.example.filmix.features.films.domain.model.FilmDetails
-import com.example.filmix.features.films.domain.repository.FilmRepository
+import com.example.filmix.features.filmList.domain.model.FilmDetails
+import com.example.filmix.features.filmList.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

@@ -10,6 +10,7 @@ object Constants {
     const val BASE_POSTER_IMAGE_URL = "https://image.tmdb.org/t/p/w342"
     const val OK_HTTP = "ok_http"
     const val DEFAULT_LANGUAGE = "en-US"
+    const val SORT_BY_POPULARITY = "popularity.desc"
     const val FILM_MEDIA_TYPE = "movie"
     const val SERIE_MEDIA_TYPE = "tv"
     const val DAY_TIME_WINDOW = "day"

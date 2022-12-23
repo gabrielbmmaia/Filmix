@@ -1,6 +1,6 @@
-package com.example.filmix.features.films.data.model
+package com.example.filmix.features.filmList.data.model
 
-import com.example.filmix.features.films.domain.model.Film
+import com.example.filmix.features.filmList.domain.model.Film
 import com.google.gson.annotations.SerializedName
 
 data class FilmDto(

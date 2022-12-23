@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.filmix.core.Constants.BASE_POSTER_IMAGE_URL
-import com.example.filmix.features.films.domain.model.FilmDetails
+import com.example.filmix.features.filmList.domain.model.FilmDetails
 import com.example.filmix.features.serie.domain.model.SerieDetails
 
 @BindingAdapter("loadImageFromUrl")

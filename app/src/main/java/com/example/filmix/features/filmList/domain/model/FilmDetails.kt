@@ -1,4 +1,4 @@
-package com.example.filmix.features.films.domain.model
+package com.example.filmix.features.filmList.domain.model
 
 import com.example.filmix.features.shared.domain.model.Genre
 

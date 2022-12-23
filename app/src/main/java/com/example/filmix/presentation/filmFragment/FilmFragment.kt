@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentFilmBinding
 import com.example.filmix.presentation.adapters.FilmPagingAdapter
+import com.example.filmix.presentation.adapters.LoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -97,13 +100,30 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     }
 
     private fun initRecyclerViews() {
-        popularAdapter = FilmPagingAdapter()
-        binding.rvPopularFilmList.hasFixedSize()
-        binding.rvPopularFilmList.adapter = popularAdapter
+        initPopularRecyclerView()
 
         ratedAdapter = FilmPagingAdapter()
         binding.rvTopRatedFilmList.hasFixedSize()
         binding.rvTopRatedFilmList.adapter = ratedAdapter
+    }
+
+    private fun initPopularRecyclerView() {
+        // Configing Adapter
+        popularAdapter = FilmPagingAdapter()
+        binding.rvPopularFilmList.hasFixedSize()
+        binding.rvPopularFilmList.adapter = popularAdapter.withLoadStateFooter(
+            footer = LoadStateAdapter { popularAdapter.retry() }
+        )
+        // State Handling
+        popularAdapter.addLoadStateListener { loadState ->
+            binding.rvPopularFilmList.isVisible = loadState.source.refresh is LoadState.NotLoading
+            binding.retryPopularFilmList.isVisible = loadState.source.refresh is LoadState.Error
+            binding.loadingPopularFilmList.isVisible = loadState.source.refresh is LoadState.Loading
+            binding.errorMessagePopularFilmList.isVisible = loadState.source.refresh is LoadState.Error
+        }
+        binding.retryPopularFilmList.setOnClickListener {
+            popularAdapter.retry()
+        }
     }
 
     private fun toDetailsFragment() {
@@ -112,16 +132,6 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
             findNavController().navigate(action)
         }
     }
-
-//    private fun setUpToolbar() {
-//        val mainActivity = mActivity as MainActivity
-//
-//        val toolbar = binding.toolbar
-//        mainActivity.setSupportActionBar(toolbar)
-//        val navController = NavHostFragment.findNavController(fragment = this)
-//        val appBarConfiguration = mainActivity.appBarConfiguration
-//        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
-//    }
 
     override fun onDestroy() {
         super.onDestroy()

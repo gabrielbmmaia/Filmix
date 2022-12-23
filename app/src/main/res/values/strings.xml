@@ -11,4 +11,6 @@
     <string name="trailer">Trailer</string>
     <string name="tag_popular">Populares</string>
     <string name="tag_top_rated">Bem avaliados</string>
+    <string name="button_tentar_novamente">Tentar Novamente</string>
+    <string name="no_internet_connection">Sem conexão com a internet</string>
 </resources>
