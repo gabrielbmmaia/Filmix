@@ -25,6 +25,12 @@ class FilmViewModel @Inject constructor(
     private val _filmRatedList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
     val filmRatedList: StateFlow<FilmPagingState> get() = _filmRatedList
 
+    private val _filmSoonList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
+    val filmSoonList: StateFlow<FilmPagingState> get() = _filmSoonList
+
+    private val _filmTheatreList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
+    val filmTheatreList: StateFlow<FilmPagingState> get() = _filmTheatreList
+
     private val _trendingFilm = MutableStateFlow<TrendingFilmState>(TrendingFilmState.Empty)
     val trendingFilm: StateFlow<TrendingFilmState> get() = _trendingFilm
 
@@ -32,6 +38,7 @@ class FilmViewModel @Inject constructor(
         loadTrendingFilm()
         loadPopularFilms()
         loadTopRatedFilms()
+        loadInSoonFilms()
     }
 
     private fun loadPopularFilms() {
@@ -51,7 +58,19 @@ class FilmViewModel @Inject constructor(
     }
 
     private fun loadInSoonFilms() {
+        viewModelScope.launch {
+            filmUseCases.getSoonFilmList().cachedIn(scope = this).collectLatest {
+                _filmSoonList.value = FilmPagingState.Success(it)
+            }
+        }
+    }
 
+    private fun loadInTheatreFilms() {
+        viewModelScope.launch {
+            filmUseCases.getTheatreFilmList().cachedIn(scope = this).collectLatest {
+                _filmTheatreList.value = FilmPagingState.Success(it)
+            }
+        }
     }
 
     private fun loadTrendingFilm() {
