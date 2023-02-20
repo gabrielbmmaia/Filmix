@@ -11,5 +11,9 @@ interface FilmRepository {
 
     fun getTopRatedFilms(): Flow<PagingData<Film>>
 
+    fun getSoonFilms(): Flow<PagingData<Film>>
+
+    fun getTheatresFilms(): Flow<PagingData<Film>>
+
     suspend fun getFilmDetails(filmId: String): FilmDetails
 }
