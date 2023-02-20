@@ -32,7 +32,7 @@ class RatedFilmPagingSource(
                 )
             }
         } catch (e: Exception) {
-            Log.e(Constants.PAGINGSOURCE_TAG, e.stackTraceToString())
+            Log.e(Constants.PAGINGSOURCE_TAG, e.message.toString())
             LoadResult.Error(e)
         }
     }
