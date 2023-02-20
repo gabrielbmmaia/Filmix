@@ -1,9 +1,7 @@
 package com.example.filmix.di
 
 import com.example.filmix.features.filmList.domain.repository.FilmRepository
-import com.example.filmix.features.filmList.domain.useCases.GetFilmDetailsUseCase
-import com.example.filmix.features.filmList.domain.useCases.GetPopularFilmListUseCase
-import com.example.filmix.features.filmList.domain.useCases.GetTopRatedFilmsUseCase
+import com.example.filmix.features.filmList.domain.useCases.*
 import com.example.filmix.features.serie.domain.useCases.GetPopularSerieUseCase
 import com.example.filmix.features.serie.domain.useCases.GetSerieDetailsUseCase
 import com.example.filmix.features.shared.domain.repository.SerieRepository
@@ -27,7 +25,9 @@ object UseCaseModule {
         FilmUseCases(
             getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository),
             getFilmDetails = GetFilmDetailsUseCase(filmRepository = filmRepository),
-            getTopRatedFilms = GetTopRatedFilmsUseCase(filmRepository = filmRepository)
+            getTopRatedFilms = GetTopRatedFilmsUseCase(filmRepository = filmRepository),
+            getSoonFilmList = GetSoonFilmListUseCase(filmRepository = filmRepository),
+            getTheatreFilmList = GetTheatreFilmListUseCase(filmRepository = filmRepository)
         )
 
     @Provides

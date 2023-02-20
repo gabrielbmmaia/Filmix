@@ -101,28 +101,57 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initRecyclerViews() {
         initPopularRecyclerView()
-
-        ratedAdapter = FilmPagingAdapter()
-        binding.rvTopRatedFilmList.hasFixedSize()
-        binding.rvTopRatedFilmList.adapter = ratedAdapter
+        initRatedRecyclerView()
     }
 
     private fun initPopularRecyclerView() {
         // Configing Adapter
         popularAdapter = FilmPagingAdapter()
-        binding.rvPopularFilmList.hasFixedSize()
-        binding.rvPopularFilmList.adapter = popularAdapter.withLoadStateFooter(
-            footer = LoadStateAdapter { popularAdapter.retry() }
-        )
+        with(binding.rvPopularFilmList) {
+            hasFixedSize()
+            adapter = popularAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { popularAdapter.retry() }
+            )
+        }
         // State Handling
         popularAdapter.addLoadStateListener { loadState ->
-            binding.rvPopularFilmList.isVisible = loadState.source.refresh is LoadState.NotLoading
-            binding.retryPopularFilmList.isVisible = loadState.source.refresh is LoadState.Error
-            binding.loadingPopularFilmList.isVisible = loadState.source.refresh is LoadState.Loading
-            binding.errorMessagePopularFilmList.isVisible = loadState.source.refresh is LoadState.Error
+            with(binding) {
+                rvPopularFilmList.isVisible =
+                    loadState.source.refresh is LoadState.NotLoading
+                retryPopularFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+                loadingPopularFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Loading
+                errorMessagePopularFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+            }
         }
         binding.retryPopularFilmList.setOnClickListener {
             popularAdapter.retry()
+        }
+    }
+
+    private fun initRatedRecyclerView() {
+        // Configing Adapter
+        ratedAdapter = FilmPagingAdapter()
+        with(binding.rvTopRatedFilmList) {
+            hasFixedSize()
+            adapter = ratedAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { ratedAdapter.retry() }
+            )
+        }
+        // State Handling
+        ratedAdapter.addLoadStateListener { loadState ->
+            with(binding) {
+                rvTopRatedFilmList.isVisible =
+                    loadState.source.refresh is LoadState.NotLoading
+                retryTopRatedFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+                loadingTopRatedFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Loading
+                errorMessageTopRatedFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+            }
         }
     }
 
