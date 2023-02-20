@@ -7,6 +7,9 @@ import com.example.filmix.core.Constants.PAGINGSOURCE_TAG
 import com.example.filmix.features.filmList.data.model.FilmDto
 import com.example.filmix.features.filmList.data.remote.FilmService
 
+/**
+ * Paginação da lista de filmes "Em Breve"
+ * */
 class SoonFilmPagingSource(
     private val filmService: FilmService
 ) : PagingSource<Int, FilmDto>() {

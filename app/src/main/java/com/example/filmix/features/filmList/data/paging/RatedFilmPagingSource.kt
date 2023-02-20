@@ -7,6 +7,9 @@ import com.example.filmix.core.Constants
 import com.example.filmix.features.filmList.data.model.FilmDto
 import com.example.filmix.features.filmList.data.remote.FilmService
 
+/**
+ * Paginação da lista de filmes "Bem Avaliados"
+ * */
 class RatedFilmPagingSource(
     private val filmService: FilmService
 ) : PagingSource<Int, FilmDto>() {
