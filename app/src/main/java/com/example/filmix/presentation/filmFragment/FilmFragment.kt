@@ -29,6 +29,8 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private lateinit var popularAdapter: FilmPagingAdapter
     private lateinit var ratedAdapter: FilmPagingAdapter
+    private lateinit var soonAdapter: FilmPagingAdapter
+    private lateinit var theatreAdapter: FilmPagingAdapter
 
     private val viewModel by viewModels<FilmViewModel>()
 
@@ -48,10 +50,8 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerViews()
-        updatePopularList()
         updateTrending()
         toDetailsFragment()
-        updateRatedList()
     }
 
     private fun updateTrending() {
@@ -69,39 +69,11 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
     }
 
-    private fun updatePopularList() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.filmPopularList.collectLatest { result ->
-                when (result) {
-
-                    is FilmPagingState.Success -> {
-                        popularAdapter.submitData(result.data)
-
-                    }
-                    else -> {}
-                }
-            }
-        }
-    }
-
-    private fun updateRatedList() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.filmRatedList.collectLatest { result ->
-                when (result) {
-
-                    is FilmPagingState.Success -> {
-                        ratedAdapter.submitData(result.data)
-
-                    }
-                    else -> {}
-                }
-            }
-        }
-    }
-
     private fun initRecyclerViews() {
         initPopularRecyclerView()
         initRatedRecyclerView()
+        initSoonRecyclerView()
+        initTheatreRecyclerView()
     }
 
     private fun initPopularRecyclerView() {
@@ -112,6 +84,17 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
             adapter = popularAdapter.withLoadStateFooter(
                 footer = LoadStateAdapter { popularAdapter.retry() }
             )
+        }
+        //Update RecyclerView
+        lifecycleScope.launchWhenStarted {
+            viewModel.filmPopularList.collectLatest { result ->
+                when (result) {
+                    is FilmPagingState.Success -> {
+                        popularAdapter.submitData(result.data)
+                    }
+                    else -> {}
+                }
+            }
         }
         // State Handling
         popularAdapter.addLoadStateListener { loadState ->
@@ -140,6 +123,17 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
                 footer = LoadStateAdapter { ratedAdapter.retry() }
             )
         }
+        //Update RecyclerView
+        lifecycleScope.launchWhenStarted {
+            viewModel.filmRatedList.collectLatest { result ->
+                when (result) {
+                    is FilmPagingState.Success -> {
+                        ratedAdapter.submitData(result.data)
+                    }
+                    else -> {}
+                }
+            }
+        }
         // State Handling
         ratedAdapter.addLoadStateListener { loadState ->
             with(binding) {
@@ -150,6 +144,76 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
                 loadingTopRatedFilmList.isVisible =
                     loadState.source.refresh is LoadState.Loading
                 errorMessageTopRatedFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+            }
+        }
+    }
+
+    private fun initSoonRecyclerView() {
+        // Configing Adapter
+        soonAdapter = FilmPagingAdapter()
+        with(binding.rvSoonFilmList) {
+            hasFixedSize()
+            adapter = soonAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { soonAdapter.retry() }
+            )
+        }
+        //Update RecyclerView
+        lifecycleScope.launchWhenStarted {
+            viewModel.filmSoonList.collectLatest { result ->
+                when (result) {
+                    is FilmPagingState.Success -> {
+                        soonAdapter.submitData(result.data)
+                    }
+                    else -> {}
+                }
+            }
+        }
+        // State Handling
+        soonAdapter.addLoadStateListener { loadState ->
+            with(binding) {
+                rvSoonFilmList.isVisible =
+                    loadState.source.refresh is LoadState.NotLoading
+                retrySoonFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+                loadingSoonFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Loading
+                errorMessageSoonFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+            }
+        }
+    }
+
+    private fun initTheatreRecyclerView() {
+        // Configing Adapter
+        theatreAdapter = FilmPagingAdapter()
+        with(binding.rvInTheatersList) {
+            hasFixedSize()
+            adapter = theatreAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { theatreAdapter.retry() }
+            )
+        }
+        //Update RecyclerView
+        lifecycleScope.launchWhenStarted {
+            viewModel.filmTheatreList.collectLatest { result ->
+                when (result) {
+                    is FilmPagingState.Success -> {
+                        theatreAdapter.submitData(result.data)
+                    }
+                    else -> {}
+                }
+            }
+        }
+        // State Handling
+        theatreAdapter.addLoadStateListener { loadState ->
+            with(binding) {
+                rvInTheatersList.isVisible =
+                    loadState.source.refresh is LoadState.NotLoading
+                retryInTheatersFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Error
+                loadingInTheatersFilmList.isVisible =
+                    loadState.source.refresh is LoadState.Loading
+                errorMessageInTheatersFilmList.isVisible =
                     loadState.source.refresh is LoadState.Error
             }
         }

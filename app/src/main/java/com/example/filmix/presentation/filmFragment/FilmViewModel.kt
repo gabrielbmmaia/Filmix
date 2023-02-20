@@ -39,6 +39,7 @@ class FilmViewModel @Inject constructor(
         loadPopularFilms()
         loadTopRatedFilms()
         loadInSoonFilms()
+        loadInTheatreFilms()
     }
 
     private fun loadPopularFilms() {
