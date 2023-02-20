@@ -29,8 +29,8 @@ class FilmViewModel @Inject constructor(
     val trendingFilm: StateFlow<TrendingFilmState> get() = _trendingFilm
 
     init {
-        loadPopularFilms()
         loadTrendingFilm()
+        loadPopularFilms()
         loadTopRatedFilms()
     }
 
@@ -48,6 +48,10 @@ class FilmViewModel @Inject constructor(
                 _filmRatedList.value = FilmPagingState.Success(it)
             }
         }
+    }
+
+    private fun loadInSoonFilms() {
+
     }
 
     private fun loadTrendingFilm() {

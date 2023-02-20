@@ -2,6 +2,7 @@ package com.example.filmix.features.filmList.data.remote
 
 import com.example.filmix.core.Constants.API_KEY
 import com.example.filmix.core.Constants.DEFAULT_LANGUAGE
+import com.example.filmix.core.Constants.DEFAULT_REGION
 import com.example.filmix.core.Constants.FILM_MEDIA_TYPE
 import com.example.filmix.core.Constants.SORT_BY_POPULARITY
 import com.example.filmix.core.Constants.WEEK_TIME_WINDOW
@@ -29,13 +30,20 @@ interface FilmService {
         @Query("language") language: String = DEFAULT_LANGUAGE
     ): FilmResponse
 
-    @GET("discover/movie")
-    suspend fun getPopularFilmsNetflix(
+    @GET("movie/upcoming")
+    suspend fun getSoonFilms(
         @Query("page") page: Int,
         @Query("api_key") key: String = API_KEY,
         @Query("language") language: String = DEFAULT_LANGUAGE,
-        @Query("sort_by") sortType: String = SORT_BY_POPULARITY,
-        @Query("with_companies") company: String
+        @Query("region") region: String = DEFAULT_REGION
+    ): FilmResponse
+
+    @GET("movie/now_playing")
+    suspend fun getTheatresFilms(
+        @Query("page") page: Int,
+        @Query("api_key") key: String = API_KEY,
+        @Query("language") language: String = DEFAULT_LANGUAGE,
+        @Query("region") region: String = DEFAULT_REGION
     ): FilmResponse
 
     @GET("movie/{movie_id}")

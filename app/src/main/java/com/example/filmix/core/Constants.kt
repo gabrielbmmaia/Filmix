@@ -15,6 +15,7 @@ object Constants {
     const val SERIE_MEDIA_TYPE = "tv"
     const val DAY_TIME_WINDOW = "day"
     const val WEEK_TIME_WINDOW = "week"
+    const val DEFAULT_REGION = "BR"
 
     // Paging Constants
     const val PAGE_SIZE = 20
