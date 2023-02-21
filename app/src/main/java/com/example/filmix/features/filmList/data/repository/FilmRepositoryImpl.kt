@@ -7,7 +7,7 @@ import com.example.filmix.features.filmList.data.paging.RatedFilmPagingSource
 import com.example.filmix.features.filmList.data.paging.SoonFilmPagingSource
 import com.example.filmix.features.filmList.data.paging.TheatreFilmPagingSource
 import com.example.filmix.features.filmList.data.remote.FilmService
-import com.example.filmix.features.filmList.domain.model.Film
+import com.example.filmix.features.shared.domain.model.Media
 import com.example.filmix.features.filmList.domain.model.FilmDetails
 import com.example.filmix.features.filmList.domain.repository.FilmRepository
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +22,7 @@ class FilmRepositoryImpl @Inject constructor(
     /**
      * Chamada da lista de Filmes mais Populares
      * */
-    override fun getPopularFilms(): Flow<PagingData<Film>> {
+    override fun getPopularFilms(): Flow<PagingData<Media>> {
         val pagingSourceFactory = { PopularFilmPagingSource(filmService = filmService) }
         val pager = Pager(
             config = PagingConfig(pageSize = PAGE_SIZE),
@@ -30,14 +30,14 @@ class FilmRepositoryImpl @Inject constructor(
         ).flow
 
         return pager.map { pagingData ->
-            pagingData.map { it.toFilm() }
+            pagingData.map { it.toMedia() }
         }
     }
 
     /**
      * Chamada da lista de Filmes mais bem avaliados
      * */
-    override fun getTopRatedFilms(): Flow<PagingData<Film>> {
+    override fun getTopRatedFilms(): Flow<PagingData<Media>> {
         val pagingSourceFactory = { RatedFilmPagingSource(filmService = filmService) }
 
         val pager = Pager(
@@ -46,14 +46,14 @@ class FilmRepositoryImpl @Inject constructor(
         ).flow
 
         return pager.map { pagingData ->
-            pagingData.map { it.toFilm() }
+            pagingData.map { it.toMedia() }
         }
     }
 
     /**
      * Chamada da lista de Filmes Em Breve
      * */
-    override fun getSoonFilms(): Flow<PagingData<Film>> {
+    override fun getSoonFilms(): Flow<PagingData<Media>> {
         val pagingSourceFactory = { SoonFilmPagingSource(filmService = filmService) }
 
         val pager = Pager(
@@ -62,14 +62,14 @@ class FilmRepositoryImpl @Inject constructor(
         ).flow
 
         return pager.map { pagingData ->
-            pagingData.map { it.toFilm() }
+            pagingData.map { it.toMedia() }
         }
     }
 
     /**
      * Chamada da lista de Filmes Em Cartaz
      * */
-    override fun getTheatresFilms(): Flow<PagingData<Film>> {
+    override fun getTheatresFilms(): Flow<PagingData<Media>> {
         val pagingSourceFactory = { TheatreFilmPagingSource(filmService = filmService) }
 
         val pager = Pager(
@@ -78,7 +78,7 @@ class FilmRepositoryImpl @Inject constructor(
         ).flow
 
         return pager.map { pagingData ->
-            pagingData.map { it.toFilm() }
+            pagingData.map { it.toMedia() }
         }
     }
 

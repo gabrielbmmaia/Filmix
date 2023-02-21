@@ -6,22 +6,22 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.filmix.databinding.FilmViewHolderItemBinding
-import com.example.filmix.features.filmList.domain.model.Film
+import com.example.filmix.features.shared.domain.model.Media
 
-class FilmPagingAdapter : PagingDataAdapter<Film, ViewHolder>(comparator) {
+class FilmPagingAdapter : PagingDataAdapter<Media, ViewHolder>(comparator) {
 
     companion object {
-        private val comparator = object : DiffUtil.ItemCallback<Film>() {
-            override fun areItemsTheSame(oldItem: Film, newItem: Film): Boolean =
+        private val comparator = object : DiffUtil.ItemCallback<Media>() {
+            override fun areItemsTheSame(oldItem: Media, newItem: Media): Boolean =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Film, newItem: Film): Boolean =
+            override fun areContentsTheSame(oldItem: Media, newItem: Media): Boolean =
                 oldItem == newItem
         }
     }
 
     class FilmViewHolder(val binding: FilmViewHolderItemBinding) : ViewHolder(binding.root) {
-        fun bind(film: Film) {
+        fun bind(film: Media) {
             binding.film = film
         }
     }

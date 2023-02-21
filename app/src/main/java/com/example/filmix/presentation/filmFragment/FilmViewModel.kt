@@ -52,7 +52,7 @@ class FilmViewModel @Inject constructor(
 
     private fun loadTopRatedFilms() {
         viewModelScope.launch {
-            filmUseCases.getTopRatedFilms().cachedIn(scope = this).collectLatest {
+            filmUseCases.getTopRatedFilmList().cachedIn(scope = this).collectLatest {
                 _filmRatedList.value = FilmPagingState.Success(it)
             }
         }

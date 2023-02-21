@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class FilmFragment : Fragment(R.layout.fragment_film) {
 
+    //Rever, possivelmente não está sendo utlizado
     lateinit var mActivity: FragmentActivity
 
     private var _binding: FragmentFilmBinding? = null
@@ -54,6 +55,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         toDetailsFragment()
     }
 
+    //Refatorar
     private fun updateTrending() {
         lifecycleScope.launchWhenStarted {
             viewModel.trendingFilm.collectLatest { result ->

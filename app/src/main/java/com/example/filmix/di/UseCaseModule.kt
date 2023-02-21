@@ -25,7 +25,7 @@ object UseCaseModule {
         FilmUseCases(
             getPopularFilmList = GetPopularFilmListUseCase(filmRepository = filmRepository),
             getFilmDetails = GetFilmDetailsUseCase(filmRepository = filmRepository),
-            getTopRatedFilms = GetTopRatedFilmsUseCase(filmRepository = filmRepository),
+            getTopRatedFilmList = GetTopRatedFilmListUseCase(filmRepository = filmRepository),
             getSoonFilmList = GetSoonFilmListUseCase(filmRepository = filmRepository),
             getTheatreFilmList = GetTheatreFilmListUseCase(filmRepository = filmRepository)
         )

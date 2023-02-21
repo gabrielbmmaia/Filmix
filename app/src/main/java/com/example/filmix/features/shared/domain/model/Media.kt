@@ -1,6 +1,6 @@
-package com.example.filmix.features.filmList.domain.model
+package com.example.filmix.features.shared.domain.model
 
-data class Film(
+data class Media(
     val id: String,
     val title: String?,
     val posterPath: String?,
