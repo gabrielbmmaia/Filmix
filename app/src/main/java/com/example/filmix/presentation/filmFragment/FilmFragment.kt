@@ -14,8 +14,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentFilmBinding
-import com.example.filmix.presentation.adapters.MediaPagingAdapter
 import com.example.filmix.presentation.adapters.LoadStateAdapter
+import com.example.filmix.presentation.adapters.MediaPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -81,7 +81,8 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     private fun initPopularRecyclerView() {
         // Configing Adapter
         popularAdapter = MediaPagingAdapter()
-        with(binding.rvPopularFilmList) {
+        binding.popularFilmList.titleMediaList.text = getString(R.string.tag_popular)
+        with(binding.popularFilmList.rvMediaList) {
             hasFixedSize()
             adapter = popularAdapter.withLoadStateFooter(
                 footer = LoadStateAdapter { popularAdapter.retry() }
@@ -100,18 +101,18 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
         // State Handling
         popularAdapter.addLoadStateListener { loadState ->
-            with(binding) {
-                rvPopularFilmList.isVisible =
+            with(binding.popularFilmList) {
+                rvMediaList.isVisible =
                     loadState.source.refresh is LoadState.NotLoading
-                retryPopularFilmList.isVisible =
+                retryButton.isVisible =
                     loadState.source.refresh is LoadState.Error
-                loadingPopularFilmList.isVisible =
+                loading.isVisible =
                     loadState.source.refresh is LoadState.Loading
-                errorMessagePopularFilmList.isVisible =
+                errorMessage.isVisible =
                     loadState.source.refresh is LoadState.Error
             }
         }
-        binding.retryPopularFilmList.setOnClickListener {
+        binding.popularFilmList.retryButton.setOnClickListener {
             popularAdapter.retry()
         }
     }
@@ -119,7 +120,8 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     private fun initRatedRecyclerView() {
         // Configing Adapter
         ratedAdapter = MediaPagingAdapter()
-        with(binding.rvTopRatedFilmList) {
+        binding.topRatedFilmList.titleMediaList.text = getString(R.string.tag_top_rated)
+        with(binding.topRatedFilmList.rvMediaList) {
             hasFixedSize()
             adapter = ratedAdapter.withLoadStateFooter(
                 footer = LoadStateAdapter { ratedAdapter.retry() }
@@ -138,23 +140,27 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
         // State Handling
         ratedAdapter.addLoadStateListener { loadState ->
-            with(binding) {
-                rvTopRatedFilmList.isVisible =
+            with(binding.topRatedFilmList) {
+                rvMediaList.isVisible =
                     loadState.source.refresh is LoadState.NotLoading
-                retryTopRatedFilmList.isVisible =
+                retryButton.isVisible =
                     loadState.source.refresh is LoadState.Error
-                loadingTopRatedFilmList.isVisible =
+                loading.isVisible =
                     loadState.source.refresh is LoadState.Loading
-                errorMessageTopRatedFilmList.isVisible =
+                errorMessage.isVisible =
                     loadState.source.refresh is LoadState.Error
             }
+        }
+        binding.topRatedFilmList.retryButton.setOnClickListener {
+            ratedAdapter.retry()
         }
     }
 
     private fun initSoonRecyclerView() {
         // Configing Adapter
         soonAdapter = MediaPagingAdapter()
-        with(binding.rvSoonFilmList) {
+        binding.soonFilmList.titleMediaList.text = getString(R.string.tag_soon)
+        with(binding.soonFilmList.rvMediaList) {
             hasFixedSize()
             adapter = soonAdapter.withLoadStateFooter(
                 footer = LoadStateAdapter { soonAdapter.retry() }
@@ -173,23 +179,27 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
         // State Handling
         soonAdapter.addLoadStateListener { loadState ->
-            with(binding) {
-                rvSoonFilmList.isVisible =
+            with(binding.soonFilmList) {
+                rvMediaList.isVisible =
                     loadState.source.refresh is LoadState.NotLoading
-                retrySoonFilmList.isVisible =
+                retryButton.isVisible =
                     loadState.source.refresh is LoadState.Error
-                loadingSoonFilmList.isVisible =
+                loading.isVisible =
                     loadState.source.refresh is LoadState.Loading
-                errorMessageSoonFilmList.isVisible =
+                errorMessage.isVisible =
                     loadState.source.refresh is LoadState.Error
             }
+        }
+        binding.soonFilmList.retryButton.setOnClickListener {
+            soonAdapter.retry()
         }
     }
 
     private fun initTheatreRecyclerView() {
         // Configing Adapter
         theatreAdapter = MediaPagingAdapter()
-        with(binding.rvInTheatersList) {
+        binding.theatresFilmList.titleMediaList.text = getString(R.string.tag_theatres)
+        with(binding.theatresFilmList.rvMediaList) {
             hasFixedSize()
             adapter = theatreAdapter.withLoadStateFooter(
                 footer = LoadStateAdapter { theatreAdapter.retry() }
@@ -208,16 +218,19 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         }
         // State Handling
         theatreAdapter.addLoadStateListener { loadState ->
-            with(binding) {
-                rvInTheatersList.isVisible =
+            with(binding.theatresFilmList) {
+                rvMediaList.isVisible =
                     loadState.source.refresh is LoadState.NotLoading
-                retryInTheatersFilmList.isVisible =
+                retryButton.isVisible =
                     loadState.source.refresh is LoadState.Error
-                loadingInTheatersFilmList.isVisible =
+                loading.isVisible =
                     loadState.source.refresh is LoadState.Loading
-                errorMessageInTheatersFilmList.isVisible =
+                errorMessage.isVisible =
                     loadState.source.refresh is LoadState.Error
             }
+        }
+        binding.theatresFilmList.retryButton.setOnClickListener {
+            theatreAdapter.retry()
         }
     }
 

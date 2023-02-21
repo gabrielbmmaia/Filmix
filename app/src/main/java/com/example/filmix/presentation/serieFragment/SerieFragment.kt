@@ -33,7 +33,7 @@ class SerieFragment : Fragment(R.layout.fragment_serie) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateTrending()
-        initRecyclerView()
+//        initRecyclerView()
         updateList()
     }
 
@@ -67,10 +67,10 @@ class SerieFragment : Fragment(R.layout.fragment_serie) {
         }
     }
 
-    private fun initRecyclerView() {
-        adapter = SeriePagingAdapter()
-        binding.serieRecyclewview.adapter = adapter
-    }
+//    private fun initRecyclerView() {
+//        adapter = SeriePagingAdapter()
+//        binding.serieRecyclewview.adapter = adapter
+//    }
 
     override fun onDestroy() {
         super.onDestroy()
