@@ -10,8 +10,8 @@ import com.example.filmix.features.shared.domain.model.Media
 import com.example.filmix.features.serie.domain.model.Serie
 
 @BindingAdapter("loadImageFromUrl")
-fun ImageView.loadImageFromUrl(film: Media?) {
-    film?.posterPath?.let { posterPath ->
+fun ImageView.loadImageFromUrl(media: Media?) {
+    media?.posterPath?.let { posterPath ->
         val finalUrl = BASE_POSTER_IMAGE_URL + posterPath
         this.load(finalUrl) {
             crossfade(enable = true)
@@ -32,8 +32,8 @@ fun ImageView.loadImageFromUrl(serie: Serie?) {
 }
 
 @BindingAdapter("itemTitle")
-fun TextView.itemTitle(film: Media?) {
-    film?.title?.let {
+fun TextView.itemTitle(media: Media?) {
+    media?.title?.let {
         text = it
     }
 }
@@ -46,8 +46,8 @@ fun TextView.itemTitle(serie: Serie?) {
 }
 
 @BindingAdapter("itemRating")
-fun TextView.itemRating(film: Media?) {
-    film?.voteAverage?.let { rate ->
+fun TextView.itemRating(media: Media?) {
+    media?.voteAverage?.let { rate ->
         if (rate >= 3.0) {
             text = rate.toString()
         } else invisible()

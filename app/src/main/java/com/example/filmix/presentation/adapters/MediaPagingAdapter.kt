@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.filmix.databinding.FilmViewHolderItemBinding
+import com.example.filmix.databinding.MediaViewHolderItemBinding
 import com.example.filmix.features.shared.domain.model.Media
 
-class FilmPagingAdapter : PagingDataAdapter<Media, ViewHolder>(comparator) {
+class MediaPagingAdapter : PagingDataAdapter<Media, ViewHolder>(comparator) {
 
     companion object {
         private val comparator = object : DiffUtil.ItemCallback<Media>() {
@@ -20,9 +20,9 @@ class FilmPagingAdapter : PagingDataAdapter<Media, ViewHolder>(comparator) {
         }
     }
 
-    class FilmViewHolder(val binding: FilmViewHolderItemBinding) : ViewHolder(binding.root) {
-        fun bind(film: Media) {
-            binding.film = film
+    class MediaViewHolder(val binding: MediaViewHolderItemBinding) : ViewHolder(binding.root) {
+        fun bind(media: Media) {
+            binding.media = media
         }
     }
 
@@ -31,20 +31,20 @@ class FilmPagingAdapter : PagingDataAdapter<Media, ViewHolder>(comparator) {
         onClick = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = FilmViewHolderItemBinding.inflate(inflater, parent, false)
-        return FilmViewHolder(binding)
+        val binding = MediaViewHolderItemBinding.inflate(inflater, parent, false)
+        return MediaViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val filmItem = getItem(position)
-        holder as FilmViewHolder
-        filmItem?.let { film ->
-            holder.bind(film)
+        holder as MediaViewHolder
+        filmItem?.let { media ->
+            holder.bind(media)
             holder.binding.root.setOnClickListener {
                 onClick?.let {
-                    it(film.id)
+                    it(media.id)
                 }
             }
         }

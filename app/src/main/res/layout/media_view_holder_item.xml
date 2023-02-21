@@ -8,7 +8,7 @@
         <import type="com.example.filmix.features.shared.domain.model.Media" />
 
         <variable
-            name="film"
+            name="media"
             type="com.example.filmix.features.shared.domain.model.Media" />
     </data>
 
@@ -31,7 +31,7 @@
 
             <ImageView
                 android:id="@+id/film_poster_image"
-                loadImageFromUrl="@{film}"
+                loadImageFromUrl="@{media}"
                 android:layout_width="160dp"
                 android:layout_height="240dp"
                 android:contentDescription="@string/poster_film"
@@ -41,7 +41,7 @@
             <TextView
                 android:id="@+id/film_rating"
                 style="@style/RatingText"
-                itemRating="@{film}"
+                itemRating="@{media}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -55,7 +55,7 @@
         <TextView
             android:id="@+id/film_title"
             style="@style/Headline2"
-            itemTitle="@{film}"
+            itemTitle="@{media}"
             android:layout_marginHorizontal="4dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

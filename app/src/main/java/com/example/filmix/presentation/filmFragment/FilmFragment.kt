@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentFilmBinding
-import com.example.filmix.presentation.adapters.FilmPagingAdapter
+import com.example.filmix.presentation.adapters.MediaPagingAdapter
 import com.example.filmix.presentation.adapters.LoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -28,10 +28,10 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
     private var _binding: FragmentFilmBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var popularAdapter: FilmPagingAdapter
-    private lateinit var ratedAdapter: FilmPagingAdapter
-    private lateinit var soonAdapter: FilmPagingAdapter
-    private lateinit var theatreAdapter: FilmPagingAdapter
+    private lateinit var popularAdapter: MediaPagingAdapter
+    private lateinit var ratedAdapter: MediaPagingAdapter
+    private lateinit var soonAdapter: MediaPagingAdapter
+    private lateinit var theatreAdapter: MediaPagingAdapter
 
     private val viewModel by viewModels<FilmViewModel>()
 
@@ -80,7 +80,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initPopularRecyclerView() {
         // Configing Adapter
-        popularAdapter = FilmPagingAdapter()
+        popularAdapter = MediaPagingAdapter()
         with(binding.rvPopularFilmList) {
             hasFixedSize()
             adapter = popularAdapter.withLoadStateFooter(
@@ -118,7 +118,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initRatedRecyclerView() {
         // Configing Adapter
-        ratedAdapter = FilmPagingAdapter()
+        ratedAdapter = MediaPagingAdapter()
         with(binding.rvTopRatedFilmList) {
             hasFixedSize()
             adapter = ratedAdapter.withLoadStateFooter(
@@ -153,7 +153,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initSoonRecyclerView() {
         // Configing Adapter
-        soonAdapter = FilmPagingAdapter()
+        soonAdapter = MediaPagingAdapter()
         with(binding.rvSoonFilmList) {
             hasFixedSize()
             adapter = soonAdapter.withLoadStateFooter(
@@ -188,7 +188,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
 
     private fun initTheatreRecyclerView() {
         // Configing Adapter
-        theatreAdapter = FilmPagingAdapter()
+        theatreAdapter = MediaPagingAdapter()
         with(binding.rvInTheatersList) {
             hasFixedSize()
             adapter = theatreAdapter.withLoadStateFooter(

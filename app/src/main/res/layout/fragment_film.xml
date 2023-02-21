@@ -146,7 +146,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:listitem="@layout/film_view_holder_item" />
+                        tools:listitem="@layout/media_view_holder_item" />
 
                     <!--                    Connection Issues -->
                     <LinearLayout
@@ -220,7 +220,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:listitem="@layout/film_view_holder_item" />
+                        tools:listitem="@layout/media_view_holder_item" />
 
                     <!--                    Connection Issues -->
                     <LinearLayout
