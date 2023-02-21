@@ -4,9 +4,9 @@ import androidx.paging.ExperimentalPagingApi
 import com.example.filmix.features.filmList.data.remote.FilmService
 import com.example.filmix.features.filmList.domain.repository.FilmRepository
 import com.example.filmix.features.serie.data.remote.SerieService
-import com.example.filmix.features.shared.domain.repository.SerieRepository
+import com.example.filmix.features.serie.domain.repository.SerieRepository
 import com.example.filmix.features.filmList.data.repository.FilmRepositoryImpl
-import com.example.filmix.features.shared.data.repository.SerieRepositoryImpl
+import com.example.filmix.features.serie.data.repository.SerieRepositoryImpl
 import com.example.filmix.features.trending.data.remote.TrendingService
 import com.example.filmix.features.trending.data.repository.TrendingRepositoryImpl
 import com.example.filmix.features.trending.domain.repository.TrendingRepository

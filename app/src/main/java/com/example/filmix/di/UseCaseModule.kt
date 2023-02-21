@@ -4,7 +4,7 @@ import com.example.filmix.features.filmList.domain.repository.FilmRepository
 import com.example.filmix.features.filmList.domain.useCases.*
 import com.example.filmix.features.serie.domain.useCases.GetPopularSerieUseCase
 import com.example.filmix.features.serie.domain.useCases.GetSerieDetailsUseCase
-import com.example.filmix.features.shared.domain.repository.SerieRepository
+import com.example.filmix.features.serie.domain.repository.SerieRepository
 import com.example.filmix.features.shared.domain.useCases.FilmUseCases
 import com.example.filmix.features.shared.domain.useCases.SerieUseCases
 import com.example.filmix.features.trending.domain.repository.TrendingRepository

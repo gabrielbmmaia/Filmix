@@ -20,10 +20,10 @@ class RatedFilmPagingSource(
         val currentPage = params.key ?: 1
         return try {
             val response = filmService.getTopRatedFilms(page = currentPage)
-            val endOfPaginationReached = response.films.isEmpty()
-            if (response.films.isNotEmpty()) {
+            val endOfPaginationReached = response.medias.isEmpty()
+            if (response.medias.isNotEmpty()) {
                 LoadResult.Page(
-                    data = response.films,
+                    data = response.medias,
                     prevKey = if (currentPage == 1) null else currentPage - 1,
                     nextKey = if (endOfPaginationReached) null else currentPage + 1
                 )

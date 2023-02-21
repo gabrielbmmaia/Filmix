@@ -21,9 +21,9 @@ class SoonFilmPagingSource(
         return try {
             val response = filmService.getSoonFilms(page = currentPage)
             LoadResult.Page(
-                data = response.films,
+                data = response.medias,
                 prevKey = if (currentPage == 1) null else currentPage -1,
-                nextKey = if (response.films.isEmpty()) null else currentPage +1
+                nextKey = if (response.medias.isEmpty()) null else currentPage +1
             )
         } catch (e: Exception) {
             Log.e(PAGINGSOURCE_TAG, e.message.toString())
