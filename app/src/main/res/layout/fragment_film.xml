@@ -128,12 +128,12 @@
                     android:id="@+id/top_rated_film_list"
                     layout="@layout/media_list" />
 
-                <!--               Soon Film List -->
+                <!--               Soon Film List-->
                 <include
                     android:id="@+id/soon_film_list"
                     layout="@layout/media_list" />
 
-                <!--                In theatres-->
+                <!--                Theatres Film List-->
                 <include
                     android:id="@+id/theatres_film_list"
                     layout="@layout/media_list" />
