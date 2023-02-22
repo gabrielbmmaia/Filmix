@@ -19,8 +19,8 @@ class SerieViewModel @Inject constructor(
     private val trendingUseCases: TrendingUseCases
 ) : ViewModel() {
 
-    private val _serieList = MutableStateFlow<SeriePagingState>(SeriePagingState.Empty)
-    val serieList: StateFlow<SeriePagingState> get() = _serieList
+    private val _seriePopularList = MutableStateFlow<SeriePagingState>(SeriePagingState.Empty)
+    val seriePopularList: StateFlow<SeriePagingState> get() = _seriePopularList
 
     private val _trendingSerie = MutableStateFlow<TrendingSerieState>(TrendingSerieState.Empty)
     val trendingSerie: StateFlow<TrendingSerieState> get() = _trendingSerie
@@ -32,8 +32,8 @@ class SerieViewModel @Inject constructor(
 
     private fun loadPopularSeries() {
         viewModelScope.launch {
-            serieUseCase.getPopularSerie().cachedIn(this).collectLatest {
-                _serieList.value = SeriePagingState.Success(data = it)
+            serieUseCase.getPopularSerieList().cachedIn(this).collectLatest {
+                _seriePopularList.value = SeriePagingState.Success(data = it)
             }
         }
     }

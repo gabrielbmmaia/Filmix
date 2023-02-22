@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.example.filmix.core.Resource
 import com.example.filmix.features.shared.domain.useCases.FilmUseCases
+import com.example.filmix.features.shared.presentation.MediaState
 import com.example.filmix.features.trending.domain.useCases.TrendingUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,17 +20,17 @@ class FilmViewModel @Inject constructor(
     private val trendingUseCases: TrendingUseCases
 ) : ViewModel() {
 
-    private val _filmPopularList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
-    val filmPopularList: StateFlow<FilmPagingState> get() = _filmPopularList
+    private val _filmPopularList = MutableStateFlow<MediaState>(MediaState.Empty)
+    val filmPopularList: StateFlow<MediaState> get() = _filmPopularList
 
-    private val _filmRatedList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
-    val filmRatedList: StateFlow<FilmPagingState> get() = _filmRatedList
+    private val _filmRatedList = MutableStateFlow<MediaState>(MediaState.Empty)
+    val filmRatedList: StateFlow<MediaState> get() = _filmRatedList
 
-    private val _filmSoonList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
-    val filmSoonList: StateFlow<FilmPagingState> get() = _filmSoonList
+    private val _filmSoonList = MutableStateFlow<MediaState>(MediaState.Empty)
+    val filmSoonList: StateFlow<MediaState> get() = _filmSoonList
 
-    private val _filmTheatreList = MutableStateFlow<FilmPagingState>(FilmPagingState.Empty)
-    val filmTheatreList: StateFlow<FilmPagingState> get() = _filmTheatreList
+    private val _filmTheatreList = MutableStateFlow<MediaState>(MediaState.Empty)
+    val filmTheatreList: StateFlow<MediaState> get() = _filmTheatreList
 
     private val _trendingFilm = MutableStateFlow<TrendingFilmState>(TrendingFilmState.Empty)
     val trendingFilm: StateFlow<TrendingFilmState> get() = _trendingFilm
@@ -45,7 +46,7 @@ class FilmViewModel @Inject constructor(
     private fun loadPopularFilms() {
         viewModelScope.launch {
             filmUseCases.getPopularFilmList().cachedIn(scope = this).collectLatest {
-                _filmPopularList.value = FilmPagingState.Success(it)
+                _filmPopularList.value = MediaState.Success(it)
             }
         }
     }
@@ -53,7 +54,7 @@ class FilmViewModel @Inject constructor(
     private fun loadTopRatedFilms() {
         viewModelScope.launch {
             filmUseCases.getTopRatedFilmList().cachedIn(scope = this).collectLatest {
-                _filmRatedList.value = FilmPagingState.Success(it)
+                _filmRatedList.value = MediaState.Success(it)
             }
         }
     }
@@ -61,7 +62,7 @@ class FilmViewModel @Inject constructor(
     private fun loadInSoonFilms() {
         viewModelScope.launch {
             filmUseCases.getSoonFilmList().cachedIn(scope = this).collectLatest {
-                _filmSoonList.value = FilmPagingState.Success(it)
+                _filmSoonList.value = MediaState.Success(it)
             }
         }
     }
@@ -69,7 +70,7 @@ class FilmViewModel @Inject constructor(
     private fun loadInTheatreFilms() {
         viewModelScope.launch {
             filmUseCases.getTheatreFilmList().cachedIn(scope = this).collectLatest {
-                _filmTheatreList.value = FilmPagingState.Success(it)
+                _filmTheatreList.value = MediaState.Success(it)
             }
         }
     }

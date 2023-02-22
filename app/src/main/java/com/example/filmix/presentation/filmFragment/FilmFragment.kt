@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.filmix.R
 import com.example.filmix.databinding.FragmentFilmBinding
+import com.example.filmix.features.shared.presentation.MediaState
 import com.example.filmix.presentation.adapters.LoadStateAdapter
 import com.example.filmix.presentation.adapters.MediaPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -92,7 +93,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         lifecycleScope.launchWhenStarted {
             viewModel.filmPopularList.collectLatest { result ->
                 when (result) {
-                    is FilmPagingState.Success -> {
+                    is MediaState.Success -> {
                         popularAdapter.submitData(result.data)
                     }
                     else -> {}
@@ -131,7 +132,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         lifecycleScope.launchWhenStarted {
             viewModel.filmRatedList.collectLatest { result ->
                 when (result) {
-                    is FilmPagingState.Success -> {
+                    is MediaState.Success -> {
                         ratedAdapter.submitData(result.data)
                     }
                     else -> {}
@@ -170,7 +171,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         lifecycleScope.launchWhenStarted {
             viewModel.filmSoonList.collectLatest { result ->
                 when (result) {
-                    is FilmPagingState.Success -> {
+                    is MediaState.Success -> {
                         soonAdapter.submitData(result.data)
                     }
                     else -> {}
@@ -209,7 +210,7 @@ class FilmFragment : Fragment(R.layout.fragment_film) {
         lifecycleScope.launchWhenStarted {
             viewModel.filmTheatreList.collectLatest { result ->
                 when (result) {
-                    is FilmPagingState.Success -> {
+                    is MediaState.Success -> {
                         theatreAdapter.submitData(result.data)
                     }
                     else -> {}
